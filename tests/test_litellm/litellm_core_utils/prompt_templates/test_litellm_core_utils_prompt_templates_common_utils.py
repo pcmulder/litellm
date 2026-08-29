@@ -1152,6 +1152,25 @@ class TestFlattenTopLevelSchemaCombinators:
         assert "anyOf" not in result
         assert result["required"] == ["id"]
 
+    def test_typeless_anyof_of_type_object_branches_without_properties_is_flattened(self):
+        from litellm.litellm_core_utils.prompt_templates.common_utils import (
+            flatten_top_level_schema_combinators,
+        )
+
+        schema = {
+            "anyOf": [
+                {"type": "object", "required": ["id", "enabled"]},
+                {"type": "object", "properties": {"schedule": {"type": "string"}}, "required": ["id", "schedule"]},
+            ]
+        }
+
+        result = flatten_top_level_schema_combinators(schema)
+
+        assert result["type"] == "object"
+        assert "anyOf" not in result
+        assert result["properties"] == {"schedule": {"type": "string"}}
+        assert result["required"] == ["id"]
+
     def test_allof_required_is_the_union_of_branches(self):
         from litellm.litellm_core_utils.prompt_templates.common_utils import (
             flatten_top_level_schema_combinators,

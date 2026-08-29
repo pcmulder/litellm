@@ -1102,6 +1102,13 @@ def _schema_properties(schema: Mapping[str, object]) -> Mapping[str, object]:
     return properties if isinstance(properties, dict) else _EMPTY_SCHEMA
 
 
+_OBJECT_LIKE_KEYWORDS: Final = ("properties", "required", "additionalProperties", "patternProperties")
+
+
+def _branch_is_object_like(branch: Mapping[str, object]) -> bool:
+    return branch.get("type") == "object" or any(key in branch for key in _OBJECT_LIKE_KEYWORDS)
+
+
 def _schema_branches(schema: Mapping[str, object], combinator: str) -> tuple[object, ...]:
     branches: Final = schema.get(combinator)
     return tuple(branches) if isinstance(branches, list) else ()
@@ -1199,7 +1206,7 @@ def _flatten_schema_against_root(
     )
     branches: Final = tuple(branch for _, group in branch_groups for branch in group)
     is_object_schema: Final = schema.get("type") == "object" or (
-        "type" not in schema and branches != () and all("properties" in branch for branch in branches)
+        "type" not in schema and branches != () and all(_branch_is_object_like(branch) for branch in branches)
     )
     if not is_object_schema:
         return schema
