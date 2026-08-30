@@ -1,0 +1,2 @@
+{"error":{"message":"Keyword banned. Keyword=litellm","type":"None","param":"None","code":"400","provider_specific_fields":{"error":"Keyword banned. Keyword=litellm"}}}
+HTTP_STATUS:400

@@ -1,0 +1,2 @@
+{"error":{"message":"litellm.AuthenticationError: AuthenticationError: OpenAIException - Incorrect API key provided: sk-dummy. You can find your API key at https://platform.openai.com/account/api-keys.. Received Model Group=gpt-4o-mini\nAvailable Model Group Fallbacks=None","type":null,"param":null,"code":"401"}}
+HTTP_STATUS:401

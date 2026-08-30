@@ -1,0 +1,22 @@
+# Minimal test config for validating the enterprise license crack (W2).
+# - one dummy model (no real provider key needed)
+# - master key for UI/API auth
+# - enterprise `banned_keywords` hook wired via litellm_settings.callbacks
+#   (wired in litellm/proxy/common_utils/callback_utils.py:294-308, gated on premium_user)
+# NOTE: `banned_keywords_list` must appear BEFORE `callbacks` — the litellm_settings
+# loop in proxy_server.py processes keys in YAML order, and the hook reads
+# litellm.banned_keywords_list at instantiation time.
+model_list:
+  - model_name: gpt-4o-mini
+    litellm_params:
+      model: openai/gpt-4o-mini
+      api_key: sk-dummy
+
+litellm_settings:
+  banned_keywords_list:
+    - "litellm"
+  callbacks:
+    - banned_keywords
+
+general_settings:
+  master_key: sk-crack-test

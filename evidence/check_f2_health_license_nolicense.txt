@@ -1,0 +1,2 @@
+{"has_license":false,"license_type":"community","expiration_date":null,"allowed_features":[],"limits":{"max_users":null,"max_teams":null}}
+HTTP_STATUS:200
