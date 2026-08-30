@@ -1,0 +1,1146 @@
+INFO:     Started server process [34244]
+INFO:     Waiting for application startup.
+[92m04:07:36 - LiteLLM Proxy:DEBUG[0m: proxy_server.py:1007 - litellm.proxy.proxy_server.py::startup() - CHECKING PREMIUM USER - True
+[92m04:07:36 - LiteLLM Proxy:DEBUG[0m: proxy_server.py:1016 - worker_config: {"model": null, "alias": null, "api_base": null, "api_version": "2025-02-01-preview", "debug": false, "detailed_debug": false, "temperature": null, "max_tokens": null, "request_timeout": null, "max_budget": null, "telemetry": true, "drop_params": false, "add_function_to_prompt": false, "headers": null, "save": false, "config": "config_crack_test.yaml", "use_queue": false}
+
+   ██╗     ██╗████████╗███████╗██╗     ██╗     ███╗   ███╗
+   ██║     ██║╚══██╔══╝██╔════╝██║     ██║     ████╗ ████║
+   ██║     ██║   ██║   █████╗  ██║     ██║     ██╔████╔██║
+   ██║     ██║   ██║   ██╔══╝  ██║     ██║     ██║╚██╔╝██║
+   ███████╗██║   ██║   ███████╗███████╗███████╗██║ ╚═╝ ██║
+   ╚══════╝╚═╝   ╚═╝   ╚══════╝╚══════╝╚══════╝╚═╝     ╚═╝
+
+[92m04:07:36 - LiteLLM Proxy:DEBUG[0m: proxy_server.py:4988 - [94m setting litellm.banned_keywords_list=['litellm'][0m
+[92m04:07:36 - LiteLLM Proxy:DEBUG[0m: callback_utils.py:133 - [94minitializing callbacks=['banned_keywords'] on proxy[0m
+[92m04:07:36 - LiteLLM Proxy:DEBUG[0m: callback_utils.py:400 - [94m Initialized Callbacks - [<litellm.proxy.hooks.litellm_skills.main.SkillsInjectionHook object at 0x11a9fa270>, <litellm.proxy.hooks.model_max_budget_limiter._PROXY_VirtualKeyModelMaxBudgetLimiter object at 0x11d50aba0>, <enterprise.enterprise_hooks.banned_keywords._ENTERPRISE_BannedKeywords object at 0x11ec49be0>] [0m
+[92m04:07:36 - LiteLLM Proxy:DEBUG[0m: proxy_server.py:5485 - _alerting_callbacks: None
+[92m04:07:36 - LiteLLM Proxy:INFO[0m: proxy_server.py:5211 - background_health_check_config enabled=False shared=False interval_seconds=300 max_concurrency=None details=True health_check_routing=False
+[92m04:07:36 - LiteLLM:DEBUG[0m: utils.py:5422 - checking potential_model_names in litellm.model_cost: {'split_model': '85bd11d90c2aa581b011c1efdb503ddb66be3a6cc30570a574143ab27b9cf497', 'combined_model_name': '85bd11d90c2aa581b011c1efdb503ddb66be3a6cc30570a574143ab27b9cf497', 'stripped_model_name': '85bd11d90c2aa581b011c1efdb503ddb66be3a6cc30570a574143ab27b9cf497', 'combined_stripped_model_name': '85bd11d90c2aa581b011c1efdb503ddb66be3a6cc30570a574143ab27b9cf497', 'custom_llm_provider': None}
+[92m04:07:36 - LiteLLM:DEBUG[0m: utils.py:5741 - Error getting model info: This model isn't mapped yet. Add it here - https://github.com/BerriAI/litellm/blob/main/model_prices_and_context_window.json
+[92m04:07:36 - LiteLLM:WARNING[0m: utils.py:2898 - register_model: model=85bd11d90c2aa581b011c1efdb503ddb66be3a6cc30570a574143ab27b9cf497 not in built-in cost map and no prefix/region variant matched; cache cost fields will default to 0. To track cache cost, add cache_creation_input_token_cost and cache_read_input_token_cost to model_info
+[92m04:07:36 - LiteLLM:DEBUG[0m: utils.py:2931 - added/updated model=85bd11d90c2aa581b011c1efdb503ddb66be3a6cc30570a574143ab27b9cf497 in litellm.model_cost: 85bd11d90c2aa581b011c1efdb503ddb66be3a6cc30570a574143ab27b9cf497
+[92m04:07:36 - LiteLLM:DEBUG[0m: utils.py:5422 - checking potential_model_names in litellm.model_cost: {'split_model': 'gpt-4o-mini', 'combined_model_name': 'openai/gpt-4o-mini', 'stripped_model_name': 'openai/gpt-4o-mini', 'combined_stripped_model_name': 'openai/gpt-4o-mini', 'custom_llm_provider': 'openai'}
+[92m04:07:36 - LiteLLM:DEBUG[0m: utils.py:2931 - added/updated model=gpt-4o-mini in litellm.model_cost: gpt-4o-mini
+[92m04:07:36 - LiteLLM Router:DEBUG[0m: router.py:8208 - 
+Initialized Model List ['gpt-4o-mini']
+[92m04:07:36 - LiteLLM Router:INFO[0m: router.py:1004 - Routing strategy: simple-shuffle
+[92m04:07:36 - LiteLLM Proxy:DEBUG[0m: proxy_server.py:5463 - Policy engine: no policies in config, skipping
+[92m04:07:36 - LiteLLM:DEBUG[0m: logging_callback_manager.py:305 - Custom logger of type SkillsInjectionHook, key: SkillsInjectionHook-max_iterations=10-sandbox_timeout=120-message_logging=True-turn_off_message_logging=False already exists in [<litellm.proxy.hooks.litellm_skills.main.SkillsInjectionHook object at 0x11a9fa270>, <litellm.proxy.hooks.model_max_budget_limiter._PROXY_VirtualKeyModelMaxBudgetLimiter object at 0x11d50aba0>, <enterprise.enterprise_hooks.banned_keywords._ENTERPRISE_BannedKeywords object at 0x11ec49be0>, <litellm.proxy.hooks.max_budget_limiter._PROXY_MaxBudgetLimiter object at 0x11ec0a350>, <litellm.proxy.hooks.parallel_request_limiter_v3._PROXY_MaxParallelRequestsHandler_v3 object at 0x11ec4acf0>, <litellm.proxy.hooks.cache_control_check._PROXY_CacheControlCheck object at 0x11ec0afd0>, <litellm.proxy.hooks.responses_id_security.ResponsesIDSecurity object at 0x11ec4b0e0>], not adding again..
+[92m04:07:36 - LiteLLM Proxy:DEBUG[0m: utils.py:562 - Skipping proxy hook managed_files: it requires a database and no prisma client is configured
+[92m04:07:36 - LiteLLM Proxy:DEBUG[0m: utils.py:562 - Skipping proxy hook managed_vector_stores: it requires a database and no prisma client is configured
+[92m04:07:36 - LiteLLM Proxy:DEBUG[0m: proxy_server.py:1166 - About to initialize semantic tool filter
+[92m04:07:36 - LiteLLM Proxy:DEBUG[0m: proxy_server.py:1169 - litellm_settings keys = ['banned_keywords_list', 'callbacks']
+[92m04:07:36 - LiteLLM Proxy:DEBUG[0m: proxy_server.py:8486 - Semantic tool filter not configured or not enabled, skipping initialization
+[92m04:07:36 - LiteLLM Proxy:DEBUG[0m: proxy_server.py:1174 - After semantic tool filter initialization
+[92m04:07:36 - LiteLLM Proxy:DEBUG[0m: proxy_server.py:1188 - prisma_client: None
+[92m04:07:36 - LiteLLM Proxy:DEBUG[0m: proxy_server.py:9421 - LiteLLM: Pyroscope profiling is disabled (set LITELLM_ENABLE_PYROSCOPE=true to enable).
+[92m04:07:36 - LiteLLM Proxy:INFO[0m: proxy_server.py:946 - SESSION REUSE: Created shared aiohttp session for connection pooling (ID: 4811886608, limit=1000, limit_per_host=500)
+[92m04:07:36 - LiteLLM Proxy:DEBUG[0m: hanging_request_check.py:153 - Checking for hanging requests....
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:4000 (Press CTRL+C to quit)
+[92m04:08:05 - LiteLLM Proxy:WARNING[0m: billing_metrics.py:218 - Enterprise billing metrics disabled: licensed deployment missing config (LITELLM_BILLING_METRICS_ENDPOINT, LITELLM_BILLING_METRICS_CLIENT_CERT, LITELLM_BILLING_METRICS_CLIENT_KEY)
+
+[1;37m#------------------------------------------------------------#[0m
+[1;37m#                                                            #[0m
+[1;37m#           'I get frustrated when the product...'            #[0m
+[1;37m#        https://github.com/BerriAI/litellm/issues/new        #[0m
+[1;37m#                                                            #[0m
+[1;37m#------------------------------------------------------------#[0m
+
+ Thank you for using LiteLLM! - Krrish & Ishaan
+
+
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+
+
+[32mLiteLLM: Proxy initialized with Config, Set models:[0m
+[32m    gpt-4o-mini[0m
+INFO:     127.0.0.1:53018 - "GET /health/liveliness HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53020 - "GET /health/liveliness HTTP/1.1" 200 OK
+[92m04:09:56 - LiteLLM Proxy:DEBUG[0m: http_parsing_utils.py:551 - populate_request_with_path_params: No vector_store_id present in path=/health/license
+[92m04:09:56 - LiteLLM Proxy:ERROR[0m: auth_exception_handler.py:97 - litellm.proxy.proxy_server.user_api_key_auth(): Exception occured - No api key passed in.
+Requester IP Address:127.0.0.1
+Traceback (most recent call last):
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/auth/user_api_key_auth.py", line 1489, in _user_api_key_auth_builder
+    raise Exception("No api key passed in.")
+Exception: No api key passed in.
+[92m04:09:56 - LiteLLM Proxy:ERROR[0m: proxy_server.py:1677 - Unhandled exception in request: ModuleNotFoundError
+Traceback (most recent call last):
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/auth/user_api_key_auth.py", line 1489, in _user_api_key_auth_builder
+    raise Exception("No api key passed in.")
+Exception: No api key passed in.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/middleware/request_size_limit_middleware.py", line 42, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/_lazy_features.py", line 309, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/middleware/security_headers_middleware.py", line 50, in __call__
+    await self.app(scope, receive, send_with_security_headers)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/middleware/in_flight_requests_middleware.py", line 46, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/middleware/billable_request_metrics_middleware.py", line 252, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/middleware/prometheus_auth_middleware.py", line 40, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/middleware/cors.py", line 88, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/routing.py", line 680, in app
+    await route.handle(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 457, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/fastapi/dependencies/utils.py", line 678, in solve_dependencies
+    solved = await call(**solved_result.values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/auth/user_api_key_auth.py", line 2655, in user_api_key_auth
+    user_api_key_auth_obj: Final = await _user_api_key_auth_builder(
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+    )
+    ^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/auth/user_api_key_auth.py", line 2105, in _user_api_key_auth_builder
+    return await UserAPIKeyAuthExceptionHandler._handle_authentication_error(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/auth/auth_exception_handler.py", line 162, in _handle_authentication_error
+    if PrismaDBExceptionHandler.is_database_service_unavailable_error(e):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/db/exception_handler.py", line 228, in is_database_service_unavailable_error
+    if PrismaDBExceptionHandler.is_database_infrastructure_error(e):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/db/exception_handler.py", line 82, in is_database_infrastructure_error
+    import prisma
+ModuleNotFoundError: No module named 'prisma'
+INFO:     127.0.0.1:53110 - "GET /health/license HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/auth/user_api_key_auth.py", line 1489, in _user_api_key_auth_builder
+    raise Exception("No api key passed in.")
+Exception: No api key passed in.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/uvicorn/protocols/http/h11_impl.py", line 416, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/fastapi/applications.py", line 1159, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/middleware/request_size_limit_middleware.py", line 42, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/_lazy_features.py", line 309, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/middleware/security_headers_middleware.py", line 50, in __call__
+    await self.app(scope, receive, send_with_security_headers)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/middleware/in_flight_requests_middleware.py", line 46, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/middleware/billable_request_metrics_middleware.py", line 252, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/middleware/prometheus_auth_middleware.py", line 40, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/middleware/cors.py", line 88, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/routing.py", line 680, in app
+    await route.handle(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 457, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/fastapi/dependencies/utils.py", line 678, in solve_dependencies
+    solved = await call(**solved_result.values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/auth/user_api_key_auth.py", line 2655, in user_api_key_auth
+    user_api_key_auth_obj: Final = await _user_api_key_auth_builder(
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+    )
+    ^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/auth/user_api_key_auth.py", line 2105, in _user_api_key_auth_builder
+    return await UserAPIKeyAuthExceptionHandler._handle_authentication_error(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/auth/auth_exception_handler.py", line 162, in _handle_authentication_error
+    if PrismaDBExceptionHandler.is_database_service_unavailable_error(e):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/db/exception_handler.py", line 228, in is_database_service_unavailable_error
+    if PrismaDBExceptionHandler.is_database_infrastructure_error(e):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/db/exception_handler.py", line 82, in is_database_infrastructure_error
+    import prisma
+ModuleNotFoundError: No module named 'prisma'
+[92m04:09:57 - LiteLLM Proxy:DEBUG[0m: http_parsing_utils.py:551 - populate_request_with_path_params: No vector_store_id present in path=/health/license
+[92m04:09:57 - LiteLLM Proxy:ERROR[0m: auth_exception_handler.py:97 - litellm.proxy.proxy_server.user_api_key_auth(): Exception occured - No api key passed in.
+Requester IP Address:127.0.0.1
+Traceback (most recent call last):
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/auth/user_api_key_auth.py", line 1489, in _user_api_key_auth_builder
+    raise Exception("No api key passed in.")
+Exception: No api key passed in.
+[92m04:09:57 - LiteLLM Proxy:ERROR[0m: proxy_server.py:1677 - Unhandled exception in request: ModuleNotFoundError
+Traceback (most recent call last):
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/auth/user_api_key_auth.py", line 1489, in _user_api_key_auth_builder
+    raise Exception("No api key passed in.")
+Exception: No api key passed in.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/middleware/request_size_limit_middleware.py", line 42, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/_lazy_features.py", line 309, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/middleware/security_headers_middleware.py", line 50, in __call__
+    await self.app(scope, receive, send_with_security_headers)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/middleware/in_flight_requests_middleware.py", line 46, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/middleware/billable_request_metrics_middleware.py", line 252, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/middleware/prometheus_auth_middleware.py", line 40, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/middleware/cors.py", line 88, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/routing.py", line 680, in app
+    await route.handle(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 457, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/fastapi/dependencies/utils.py", line 678, in solve_dependencies
+    solved = await call(**solved_result.values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/auth/user_api_key_auth.py", line 2655, in user_api_key_auth
+    user_api_key_auth_obj: Final = await _user_api_key_auth_builder(
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+    )
+    ^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/auth/user_api_key_auth.py", line 2105, in _user_api_key_auth_builder
+    return await UserAPIKeyAuthExceptionHandler._handle_authentication_error(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/auth/auth_exception_handler.py", line 162, in _handle_authentication_error
+    if PrismaDBExceptionHandler.is_database_service_unavailable_error(e):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/db/exception_handler.py", line 228, in is_database_service_unavailable_error
+    if PrismaDBExceptionHandler.is_database_infrastructure_error(e):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/db/exception_handler.py", line 82, in is_database_infrastructure_error
+    import prisma
+ModuleNotFoundError: No module named 'prisma'
+INFO:     127.0.0.1:53113 - "GET /health/license HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/auth/user_api_key_auth.py", line 1489, in _user_api_key_auth_builder
+    raise Exception("No api key passed in.")
+Exception: No api key passed in.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/uvicorn/protocols/http/h11_impl.py", line 416, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/fastapi/applications.py", line 1159, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/middleware/request_size_limit_middleware.py", line 42, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/_lazy_features.py", line 309, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/middleware/security_headers_middleware.py", line 50, in __call__
+    await self.app(scope, receive, send_with_security_headers)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/middleware/in_flight_requests_middleware.py", line 46, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/middleware/billable_request_metrics_middleware.py", line 252, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/middleware/prometheus_auth_middleware.py", line 40, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/middleware/cors.py", line 88, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/routing.py", line 680, in app
+    await route.handle(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 457, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/fastapi/dependencies/utils.py", line 678, in solve_dependencies
+    solved = await call(**solved_result.values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/auth/user_api_key_auth.py", line 2655, in user_api_key_auth
+    user_api_key_auth_obj: Final = await _user_api_key_auth_builder(
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+    )
+    ^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/auth/user_api_key_auth.py", line 2105, in _user_api_key_auth_builder
+    return await UserAPIKeyAuthExceptionHandler._handle_authentication_error(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/auth/auth_exception_handler.py", line 162, in _handle_authentication_error
+    if PrismaDBExceptionHandler.is_database_service_unavailable_error(e):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/db/exception_handler.py", line 228, in is_database_service_unavailable_error
+    if PrismaDBExceptionHandler.is_database_infrastructure_error(e):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/db/exception_handler.py", line 82, in is_database_infrastructure_error
+    import prisma
+ModuleNotFoundError: No module named 'prisma'
+[92m04:09:58 - LiteLLM Proxy:DEBUG[0m: http_parsing_utils.py:551 - populate_request_with_path_params: No vector_store_id present in path=/health/license
+[92m04:09:58 - LiteLLM Proxy:ERROR[0m: auth_exception_handler.py:97 - litellm.proxy.proxy_server.user_api_key_auth(): Exception occured - No api key passed in.
+Requester IP Address:127.0.0.1
+Traceback (most recent call last):
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/auth/user_api_key_auth.py", line 1489, in _user_api_key_auth_builder
+    raise Exception("No api key passed in.")
+Exception: No api key passed in.
+[92m04:09:58 - LiteLLM Proxy:ERROR[0m: proxy_server.py:1677 - Unhandled exception in request: ModuleNotFoundError
+Traceback (most recent call last):
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/auth/user_api_key_auth.py", line 1489, in _user_api_key_auth_builder
+    raise Exception("No api key passed in.")
+Exception: No api key passed in.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/middleware/request_size_limit_middleware.py", line 42, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/_lazy_features.py", line 309, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/middleware/security_headers_middleware.py", line 50, in __call__
+    await self.app(scope, receive, send_with_security_headers)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/middleware/in_flight_requests_middleware.py", line 46, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/middleware/billable_request_metrics_middleware.py", line 252, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/middleware/prometheus_auth_middleware.py", line 40, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/middleware/cors.py", line 88, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/routing.py", line 680, in app
+    await route.handle(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 457, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/fastapi/dependencies/utils.py", line 678, in solve_dependencies
+    solved = await call(**solved_result.values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/auth/user_api_key_auth.py", line 2655, in user_api_key_auth
+    user_api_key_auth_obj: Final = await _user_api_key_auth_builder(
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+    )
+    ^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/auth/user_api_key_auth.py", line 2105, in _user_api_key_auth_builder
+    return await UserAPIKeyAuthExceptionHandler._handle_authentication_error(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/auth/auth_exception_handler.py", line 162, in _handle_authentication_error
+    if PrismaDBExceptionHandler.is_database_service_unavailable_error(e):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/db/exception_handler.py", line 228, in is_database_service_unavailable_error
+    if PrismaDBExceptionHandler.is_database_infrastructure_error(e):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/db/exception_handler.py", line 82, in is_database_infrastructure_error
+    import prisma
+ModuleNotFoundError: No module named 'prisma'
+INFO:     127.0.0.1:53117 - "GET /health/license HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/auth/user_api_key_auth.py", line 1489, in _user_api_key_auth_builder
+    raise Exception("No api key passed in.")
+Exception: No api key passed in.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/uvicorn/protocols/http/h11_impl.py", line 416, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/fastapi/applications.py", line 1159, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/middleware/request_size_limit_middleware.py", line 42, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/_lazy_features.py", line 309, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/middleware/security_headers_middleware.py", line 50, in __call__
+    await self.app(scope, receive, send_with_security_headers)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/middleware/in_flight_requests_middleware.py", line 46, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/middleware/billable_request_metrics_middleware.py", line 252, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/middleware/prometheus_auth_middleware.py", line 40, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/middleware/cors.py", line 88, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/routing.py", line 680, in app
+    await route.handle(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 457, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/fastapi/dependencies/utils.py", line 678, in solve_dependencies
+    solved = await call(**solved_result.values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/auth/user_api_key_auth.py", line 2655, in user_api_key_auth
+    user_api_key_auth_obj: Final = await _user_api_key_auth_builder(
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+    )
+    ^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/auth/user_api_key_auth.py", line 2105, in _user_api_key_auth_builder
+    return await UserAPIKeyAuthExceptionHandler._handle_authentication_error(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/auth/auth_exception_handler.py", line 162, in _handle_authentication_error
+    if PrismaDBExceptionHandler.is_database_service_unavailable_error(e):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/db/exception_handler.py", line 228, in is_database_service_unavailable_error
+    if PrismaDBExceptionHandler.is_database_infrastructure_error(e):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/db/exception_handler.py", line 82, in is_database_infrastructure_error
+    import prisma
+ModuleNotFoundError: No module named 'prisma'
+[92m04:09:58 - LiteLLM Proxy:DEBUG[0m: http_parsing_utils.py:551 - populate_request_with_path_params: No vector_store_id present in path=/health/license
+[92m04:09:58 - LiteLLM:DEBUG[0m: user_api_key_auth.py:1584 - api key not found in cache.
+[92m04:09:58 - LiteLLM Proxy:DEBUG[0m: user_api_key_auth.py:2136 - centralized auth: user fetch swallowed (ModuleNotFoundError: No module named 'prisma')
+[92m04:09:58 - LiteLLM Proxy:DEBUG[0m: auth_checks.py:4857 - Prisma client not found, skipping vector store access check
+INFO:     127.0.0.1:53119 - "GET /health/license HTTP/1.1" 200 OK
+[92m04:10:06 - LiteLLM Proxy:DEBUG[0m: hanging_request_check.py:153 - Checking for hanging requests....
+[92m04:12:36 - LiteLLM Proxy:DEBUG[0m: hanging_request_check.py:153 - Checking for hanging requests....
+[92m04:14:37 - LiteLLM Proxy:DEBUG[0m: custom_openapi_spec.py:273 - Successfully added ProxyChatCompletionRequest schema to OpenAPI spec
+[92m04:14:37 - LiteLLM Proxy:DEBUG[0m: custom_openapi_spec.py:273 - Successfully added EmbeddingRequest schema to OpenAPI spec
+[92m04:14:37 - LiteLLM Proxy:DEBUG[0m: custom_openapi_spec.py:275 - Could not get schema for ResponsesAPIRequestParams
+INFO:     127.0.0.1:53454 - "GET /openapi.json HTTP/1.1" 200 OK
+[92m04:15:06 - LiteLLM Proxy:DEBUG[0m: hanging_request_check.py:153 - Checking for hanging requests....
+[92m04:17:36 - LiteLLM Proxy:DEBUG[0m: hanging_request_check.py:153 - Checking for hanging requests....
+[92m04:20:06 - LiteLLM Proxy:DEBUG[0m: hanging_request_check.py:153 - Checking for hanging requests....
+[92m04:22:36 - LiteLLM Proxy:DEBUG[0m: hanging_request_check.py:153 - Checking for hanging requests....
+[92m04:25:06 - LiteLLM Proxy:DEBUG[0m: hanging_request_check.py:153 - Checking for hanging requests....
+[92m04:26:47 - LiteLLM Proxy:DEBUG[0m: http_parsing_utils.py:551 - populate_request_with_path_params: No vector_store_id present in path=/chat/completions
+[92m04:26:47 - LiteLLM:DEBUG[0m: user_api_key_auth.py:1584 - api key not found in cache.
+[92m04:26:47 - LiteLLM Proxy:DEBUG[0m: user_api_key_auth.py:2136 - centralized auth: user fetch swallowed (ModuleNotFoundError: No module named 'prisma')
+[92m04:26:47 - LiteLLM:DEBUG[0m: utils.py:5422 - checking potential_model_names in litellm.model_cost: {'split_model': 'gpt-4o-mini', 'combined_model_name': 'openai/gpt-4o-mini', 'stripped_model_name': 'openai/gpt-4o-mini', 'combined_stripped_model_name': 'openai/gpt-4o-mini', 'custom_llm_provider': 'openai'}
+[92m04:26:47 - LiteLLM Proxy:DEBUG[0m: auth_checks.py:358 - Model gpt-4o-mini has non-zero cost (input: 1.5e-07, output: 6e-07)
+[92m04:26:47 - LiteLLM Proxy:DEBUG[0m: auth_checks.py:4857 - Prisma client not found, skipping vector store access check
+[92m04:26:47 - LiteLLM:DEBUG[0m: __init__.py:101 - Discovering guardrail translations in: litellm.llms.cohere.rerank.guardrail_translation
+[92m04:26:47 - LiteLLM:DEBUG[0m: __init__.py:110 - Found guardrail_translation_mappings in litellm.llms.cohere.rerank.guardrail_translation: [<CallTypes.rerank: 'rerank'>, <CallTypes.arerank: 'arerank'>]
+[92m04:26:47 - LiteLLM:DEBUG[0m: __init__.py:101 - Discovering guardrail translations in: litellm.llms.a2a.chat.guardrail_translation
+[92m04:26:47 - LiteLLM:DEBUG[0m: __init__.py:110 - Found guardrail_translation_mappings in litellm.llms.a2a.chat.guardrail_translation: [<CallTypes.send_message: 'send_message'>, <CallTypes.asend_message: 'asend_message'>]
+[92m04:26:47 - LiteLLM:DEBUG[0m: __init__.py:101 - Discovering guardrail translations in: litellm.llms.bedrock.passthrough.guardrail_translation
+[92m04:26:47 - LiteLLM:DEBUG[0m: __init__.py:101 - Discovering guardrail translations in: litellm.llms.anthropic.chat.guardrail_translation
+[92m04:26:47 - LiteLLM:DEBUG[0m: __init__.py:110 - Found guardrail_translation_mappings in litellm.llms.anthropic.chat.guardrail_translation: [<CallTypes.anthropic_messages: 'anthropic_messages'>]
+[92m04:26:47 - LiteLLM:DEBUG[0m: __init__.py:101 - Discovering guardrail translations in: litellm.llms.pass_through.guardrail_translation
+[92m04:26:47 - LiteLLM:DEBUG[0m: __init__.py:110 - Found guardrail_translation_mappings in litellm.llms.pass_through.guardrail_translation: [<CallTypes.pass_through: 'pass_through_endpoint'>, <CallTypes.allm_passthrough_route: 'allm_passthrough_route'>]
+[92m04:26:47 - LiteLLM:DEBUG[0m: __init__.py:101 - Discovering guardrail translations in: litellm.llms.mistral.ocr.guardrail_translation
+[92m04:26:47 - LiteLLM:DEBUG[0m: __init__.py:110 - Found guardrail_translation_mappings in litellm.llms.mistral.ocr.guardrail_translation: [<CallTypes.ocr: 'ocr'>, <CallTypes.aocr: 'aocr'>]
+[92m04:26:47 - LiteLLM:DEBUG[0m: __init__.py:101 - Discovering guardrail translations in: litellm.llms.openai.embeddings.guardrail_translation
+[92m04:26:47 - LiteLLM:DEBUG[0m: __init__.py:110 - Found guardrail_translation_mappings in litellm.llms.openai.embeddings.guardrail_translation: [<CallTypes.embedding: 'embedding'>, <CallTypes.aembedding: 'aembedding'>]
+[92m04:26:47 - LiteLLM:DEBUG[0m: __init__.py:101 - Discovering guardrail translations in: litellm.llms.openai.chat.guardrail_translation
+[92m04:26:47 - LiteLLM:DEBUG[0m: __init__.py:110 - Found guardrail_translation_mappings in litellm.llms.openai.chat.guardrail_translation: [<CallTypes.completion: 'completion'>, <CallTypes.acompletion: 'acompletion'>]
+[92m04:26:47 - LiteLLM:DEBUG[0m: __init__.py:101 - Discovering guardrail translations in: litellm.llms.openai.image_generation.guardrail_translation
+[92m04:26:47 - LiteLLM:DEBUG[0m: __init__.py:110 - Found guardrail_translation_mappings in litellm.llms.openai.image_generation.guardrail_translation: [<CallTypes.image_generation: 'image_generation'>, <CallTypes.aimage_generation: 'aimage_generation'>]
+[92m04:26:47 - LiteLLM:DEBUG[0m: __init__.py:101 - Discovering guardrail translations in: litellm.llms.openai.responses.guardrail_translation
+[92m04:26:47 - LiteLLM:DEBUG[0m: __init__.py:110 - Found guardrail_translation_mappings in litellm.llms.openai.responses.guardrail_translation: [<CallTypes.responses: 'responses'>, <CallTypes.aresponses: 'aresponses'>]
+[92m04:26:47 - LiteLLM:DEBUG[0m: __init__.py:101 - Discovering guardrail translations in: litellm.llms.openai.completion.guardrail_translation
+[92m04:26:47 - LiteLLM:DEBUG[0m: __init__.py:110 - Found guardrail_translation_mappings in litellm.llms.openai.completion.guardrail_translation: [<CallTypes.text_completion: 'text_completion'>, <CallTypes.atext_completion: 'atext_completion'>]
+[92m04:26:47 - LiteLLM:DEBUG[0m: __init__.py:101 - Discovering guardrail translations in: litellm.llms.openai.speech.guardrail_translation
+[92m04:26:47 - LiteLLM:DEBUG[0m: __init__.py:110 - Found guardrail_translation_mappings in litellm.llms.openai.speech.guardrail_translation: [<CallTypes.speech: 'speech'>, <CallTypes.aspeech: 'aspeech'>]
+[92m04:26:47 - LiteLLM:DEBUG[0m: __init__.py:101 - Discovering guardrail translations in: litellm.llms.openai.transcriptions.guardrail_translation
+[92m04:26:47 - LiteLLM:DEBUG[0m: __init__.py:110 - Found guardrail_translation_mappings in litellm.llms.openai.transcriptions.guardrail_translation: [<CallTypes.transcription: 'transcription'>, <CallTypes.atranscription: 'atranscription'>]
+[92m04:26:47 - LiteLLM:DEBUG[0m: __init__.py:127 - Loaded MCP guardrail translation mappings: [<CallTypes.call_mcp_tool: 'call_mcp_tool'>]
+[92m04:26:47 - LiteLLM:DEBUG[0m: __init__.py:134 - Discovered 24 guardrail translation mappings: [<CallTypes.rerank: 'rerank'>, <CallTypes.arerank: 'arerank'>, <CallTypes.send_message: 'send_message'>, <CallTypes.asend_message: 'asend_message'>, <CallTypes.anthropic_messages: 'anthropic_messages'>, <CallTypes.pass_through: 'pass_through_endpoint'>, <CallTypes.allm_passthrough_route: 'allm_passthrough_route'>, <CallTypes.ocr: 'ocr'>, <CallTypes.aocr: 'aocr'>, <CallTypes.embedding: 'embedding'>, <CallTypes.aembedding: 'aembedding'>, <CallTypes.completion: 'completion'>, <CallTypes.acompletion: 'acompletion'>, <CallTypes.image_generation: 'image_generation'>, <CallTypes.aimage_generation: 'aimage_generation'>, <CallTypes.responses: 'responses'>, <CallTypes.aresponses: 'aresponses'>, <CallTypes.text_completion: 'text_completion'>, <CallTypes.atext_completion: 'atext_completion'>, <CallTypes.speech: 'speech'>, <CallTypes.aspeech: 'aspeech'>, <CallTypes.transcription: 'transcription'>, <CallTypes.atranscription: 'atranscription'>, <CallTypes.call_mcp_tool: 'call_mcp_tool'>]
+[92m04:26:47 - LiteLLM Proxy:DEBUG[0m: common_request_processing.py:1707 - Request received by LiteLLM:
+{"model": "gpt-4o-mini", "messages": [{"role": "user", "content": "What does litellm do?"}], "metadata": {"user_api_key_user_id": "default_user_id"}}
+[92m04:26:47 - LiteLLM Proxy:DEBUG[0m: litellm_pre_call_utils.py:1615 - Request Headers: {'host': 'localhost:4000', 'user-agent': 'curl/8.7.1', 'accept': '*/*', 'content-type': 'application/json', 'content-length': '86'}
+[92m04:26:47 - LiteLLM Proxy:DEBUG[0m: litellm_pre_call_utils.py:1616 - Raw Headers: RedactedDict(REDACTED)
+[92m04:26:47 - LiteLLM Proxy:DEBUG[0m: litellm_pre_call_utils.py:1712 - receiving data: {'model': 'gpt-4o-mini', 'messages': [{'role': 'user', 'content': 'What does litellm do?'}], 'metadata': {'headers': {'host': 'localhost:4000', 'user-agent': 'curl/8.7.1', 'accept': '*/*', 'content-type': 'application/json', 'content-length': '86'}}, 'proxy_server_request': {'url': 'http://localhost:4000/chat/completions', 'method': 'POST', 'headers': {'host': 'localhost:4000', 'user-agent': 'curl/8.7.1', 'accept': '*/*', 'content-type': 'application/json', 'content-length': '86'}, 'body': None, 'arrival_time': 1788056807.9529579}, 'secret_fields': {'raw_headers': RedactedDict(REDACTED)}}
+[92m04:26:47 - LiteLLM Proxy:DEBUG[0m: litellm_pre_call_utils.py:2054 - [PROXY] returned data from litellm_pre_call_utils: {'model': 'gpt-4o-mini', 'messages': [{'role': 'user', 'content': 'What does litellm do?'}], 'metadata': {'headers': {'host': 'localhost:4000', 'user-agent': 'curl/8.7.1', 'accept': '*/*', 'content-type': 'application/json', 'content-length': '86'}, 'requester_metadata': {'headers': {'host': 'localhost:4000', 'user-agent': 'curl/8.7.1', 'accept': '*/*', 'content-type': 'application/json', 'content-length': '86'}}, 'user_api_key_hash': 'litellm_proxy_master_key', 'user_api_key_alias': None, 'user_api_key_spend': 0.0, 'user_api_key_max_budget': None, 'user_api_key_user_spend': None, 'user_api_key_user_max_budget': None, 'user_api_key_team_spend': None, 'user_api_key_team_max_budget': None, 'user_api_key_team_id': None, 'user_api_key_project_id': None, 'user_api_key_project_alias': None, 'user_api_key_user_id': 'default_user_id', 'user_api_key_org_id': None, 'user_api_key_org_alias': None, 'user_api_key_team_alias': None, 'user_api_key_end_user_id': None, 'user_api_key_user_email': None, 'user_api_key_request_route': '/chat/completions', 'user_api_key_budget_reset_at': None, 'user_api_key_auth_metadata': {}, 'user_REDACTED', 'agent_id': None, 'user_api_end_user_max_budget': None, 'user_api_key_auth': UserAPIKeyAuth(token='litellm_proxy_master_key', key_name=None, key_alias=None, spend=0.0, max_budget=None, expires=None, models=[], aliases={}, config={}, user_id='default_user_id', team_id=None, agent_id=None, project_id=None, max_parallel_requests=None, metadata={}, tpm_limit=None, rpm_limit=None, budget_duration=None, budget_reset_at=None, allowed_cache_controls=[], allowed_routes=[], key_type=None, permissions={}, model_spend={}, model_max_budget={}, budget_fallbacks={}, soft_budget_cooldown=False, blocked=None, litellm_budget_table=None, budget_id=None, org_id=None, created_at=None, created_by=None, updated_at=None, updated_by=None, settings_updated_at=None, last_active=None, object_permission_id=None, object_permission=None, access_group_ids=None, rotation_count=0, auto_rotate=False, rotation_interval=None, last_rotation_at=None, key_rotation_at=None, router_settings=None, budget_limits=None, team_spend=None, team_alias=None, team_tpm_limit=None, team_rpm_limit=None, team_max_budget=None, team_soft_budget=None, team_models=[], team_blocked=False, soft_budget=None, team_model_aliases=None, team_member=None, team_metadata=None, team_object_permission_id=None, team_member_spend=None, team_member_tpm_limit=None, team_member_rpm_limit=None, end_user_id=None, end_user_tpm_limit=None, end_user_rpm_limit=None, end_user_max_budget=None, end_user_model_max_budget=None, organization_alias=None, organization_max_budget=None, organization_tpm_limit=None, organization_rpm_limit=None, organization_metadata=None, project_alias=None, project_metadata=None, last_refreshed_at=1788056807.2215428, REDACTED', user_role=<LitellmUserRoles.PROXY_ADMIN: 'proxy_admin'>, allowed_model_region=None, parent_otel_span=None, rpm_limit_per_model=None, tpm_limit_per_model=None, user_tpm_limit=None, user_rpm_limit=None, user_email=None, user_spend=None, user_max_budget=None, request_route='/chat/completions', is_session_token=False, mcp_admitted_user_subject=False, mcp_source_team_rpm_limits=None, mcp_session_resource_server_id=None, via_virtual_key=True, budget_reservation=None, budget_throttle_pct=None, user=None, created_by_user=None, end_user_object_permission=None, team_object_permission=None, jwt_claims=None), 'litellm_api_version': '1.98.0', 'global_max_parallel_requests': None, 'inherited_tags': (), 'user_api_key_model_max_budget': {}, 'user_api_key_end_user_model_max_budget': None, 'user_api_key_metadata': {}, 'user_api_key_team_metadata': None, 'user_api_key_object_permission_id': None, 'user_api_key_team_object_permission_id': None, 'endpoint': 'http://localhost:4000/chat/completions', 'litellm_received_at': datetime.datetime(2026, 8, 30, 2, 26, 47, 219372, tzinfo=datetime.timezone.utc), 'litellm_parent_otel_span': None, 'requester_ip_address': '127.0.0.1', 'user_agent': 'curl/8.7.1', 'caller_tags': ()}, 'proxy_server_request': {'url': 'http://localhost:4000/chat/completions', 'method': 'POST', 'headers': {'host': 'localhost:4000', 'user-agent': 'curl/8.7.1', 'accept': '*/*', 'content-type': 'application/json', 'content-length': '86'}, 'body': {'model': 'gpt-4o-mini', 'messages': [{'role': 'user', 'content': 'What does litellm do?'}], 'metadata': {'headers': {'host': 'localhost:4000', 'user-agent': 'curl/8.7.1', 'accept': '*/*', 'content-type': 'application/json', 'content-length': '86'}, 'requester_metadata': {'headers': {'host': 'localhost:4000', 'user-agent': 'curl/8.7.1', 'accept': '*/*', 'content-type': 'application/json', 'content-length': '86'}}, 'user_api_key_hash': 'litellm_proxy_master_key', 'user_api_key_alias': None, 'user_api_key_spend': 0.0, 'user_api_key_max_budget': None, 'user_api_key_user_spend': None, 'user_api_key_user_max_budget': None, 'user_api_key_team_spend': None, 'user_api_key_team_max_budget': None, 'user_api_key_team_id': None, 'user_api_key_project_id': None, 'user_api_key_project_alias': None, 'user_api_key_user_id': 'default_user_id', 'user_api_key_org_id': None, 'user_api_key_org_alias': None, 'user_api_key_team_alias': None, 'user_api_key_end_user_id': None, 'user_api_key_user_email': None, 'user_api_key_request_route': '/chat/completions', 'user_api_key_budget_reset_at': None, 'user_api_key_auth_metadata': {}, 'user_REDACTED', 'agent_id': None, 'user_api_end_user_max_budget': None, 'user_api_key_auth': UserAPIKeyAuth(token='litellm_proxy_master_key', key_name=None, key_alias=None, spend=0.0, max_budget=None, expires=None, models=[], aliases={}, config={}, user_id='default_user_id', team_id=None, agent_id=None, project_id=None, max_parallel_requests=None, metadata={}, tpm_limit=None, rpm_limit=None, budget_duration=None, budget_reset_at=None, allowed_cache_controls=[], allowed_routes=[], key_type=None, permissions={}, model_spend={}, model_max_budget={}, budget_fallbacks={}, soft_budget_cooldown=False, blocked=None, litellm_budget_table=None, budget_id=None, org_id=None, created_at=None, created_by=None, updated_at=None, updated_by=None, settings_updated_at=None, last_active=None, object_permission_id=None, object_permission=None, access_group_ids=None, rotation_count=0, auto_rotate=False, rotation_interval=None, last_rotation_at=None, key_rotation_at=None, router_settings=None, budget_limits=None, team_spend=None, team_alias=None, team_tpm_limit=None, team_rpm_limit=None, team_max_budget=None, team_soft_budget=None, team_models=[], team_blocked=False, soft_budget=None, team_model_aliases=None, team_member=None, team_metadata=None, team_object_permission_id=None, team_member_spend=None, team_member_tpm_limit=None, team_member_rpm_limit=None, end_user_id=None, end_user_tpm_limit=None, end_user_rpm_limit=None, end_user_max_budget=None, end_user_model_max_budget=None, organization_alias=None, organization_max_budget=None, organization_tpm_limit=None, organization_rpm_limit=None, organization_metadata=None, project_alias=None, project_metadata=None, last_refreshed_at=1788056807.2215428, REDACTED', user_role=<LitellmUserRoles.PROXY_ADMIN: 'proxy_admin'>, allowed_model_region=None, parent_otel_span=None, rpm_limit_per_model=None, tpm_limit_per_model=None, user_tpm_limit=None, user_rpm_limit=None, user_email=None, user_spend=None, user_max_budget=None, request_route='/chat/completions', is_session_token=False, mcp_admitted_user_subject=False, mcp_source_team_rpm_limits=None, mcp_session_resource_server_id=None, via_virtual_key=True, budget_reservation=None, budget_throttle_pct=None, user=None, created_by_user=None, end_user_object_permission=None, team_object_permission=None, jwt_claims=None), 'litellm_api_version': '1.98.0', 'global_max_parallel_requests': None, 'inherited_tags': (), 'user_api_key_model_max_budget': {}, 'user_api_key_end_user_model_max_budget': None, 'user_api_key_metadata': {}, 'user_api_key_team_metadata': None, 'user_api_key_object_permission_id': None, 'user_api_key_team_object_permission_id': None, 'endpoint': 'http://localhost:4000/chat/completions', 'litellm_received_at': datetime.datetime(2026, 8, 30, 2, 26, 47, 219372, tzinfo=datetime.timezone.utc), 'litellm_parent_otel_span': None, 'requester_ip_address': '127.0.0.1', 'user_agent': 'curl/8.7.1', 'caller_tags': ()}}, 'arrival_time': 1788056807.9529579}, 'secret_fields': {'raw_headers': RedactedDict(REDACTED)}}
+[92m04:26:47 - LiteLLM:DEBUG[0m: utils.py:493 - Initialized litellm callbacks, Async Success Callbacks: [<bound method Router.deployment_callback_on_success of <litellm.router.Router object at 0x11ec49a90>>, <litellm.proxy.hooks.litellm_skills.main.SkillsInjectionHook object at 0x11a9fa270>, <litellm.proxy.hooks.model_max_budget_limiter._PROXY_VirtualKeyModelMaxBudgetLimiter object at 0x11d50aba0>, <enterprise.enterprise_hooks.banned_keywords._ENTERPRISE_BannedKeywords object at 0x11ec49be0>, <litellm.proxy.hooks.max_budget_limiter._PROXY_MaxBudgetLimiter object at 0x11ec0a350>, <litellm.proxy.hooks.parallel_request_limiter_v3._PROXY_MaxParallelRequestsHandler_v3 object at 0x11ec4acf0>, <litellm.proxy.hooks.cache_control_check._PROXY_CacheControlCheck object at 0x11ec0afd0>, <litellm.proxy.hooks.responses_id_security.ResponsesIDSecurity object at 0x11ec4b0e0>, <litellm.proxy.hooks.max_iterations_limiter._PROXY_MaxIterationsHandler object at 0x11ec4b230>, <litellm.proxy.hooks.max_budget_per_session_limiter._PROXY_MaxBudgetPerSessionHandler object at 0x11ec4b380>, <litellm.proxy.hooks.sensitive_data_routing._PROXY_SensitiveDataRoutingHandler object at 0x11ec4b4d0>, <litellm._service_logger.ServiceLogging object at 0x11d67f6f0>]
+[92m04:26:47 - LiteLLM:DEBUG[0m: utils.py:997 - Removing thought signatures from tool call IDs for non-Gemini model
+[92m04:26:47 - LiteLLM:DEBUG[0m: litellm_logging.py:600 - self.optional_params: {}
+[92m04:26:47 - LiteLLM Proxy:DEBUG[0m: utils.py:1372 - Inside Proxy Logging Pre-call hook!
+[92m04:26:47 - LiteLLM Proxy:DEBUG[0m: banned_keywords.py:54 - Inside Banned Keyword List Pre-Call Hook
+[92m04:26:47 - LiteLLM Proxy:ERROR[0m: common_request_processing.py:1041 - litellm.proxy.proxy_server._handle_llm_api_exception(): Exception occured - 400: {'error': 'Keyword banned. Keyword=litellm'}
+Traceback (most recent call last):
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/proxy_server.py", line 9875, in chat_completion
+    result: Final = await base_llm_response_processor.base_process_llm_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<16 lines>...
+    )
+    ^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/common_request_processing.py", line 1839, in base_process_llm_request
+    self.data, logging_obj = await self._pre_call_with_fallbacks(
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<14 lines>...
+    )
+    ^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/common_request_processing.py", line 1549, in _pre_call_with_fallbacks
+    return await self.common_processing_pre_call_logic(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<14 lines>...
+    )
+    ^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/common_request_processing.py", line 1518, in common_processing_pre_call_logic
+    self.data = await proxy_logging_obj.pre_call_hook(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/utils.py", line 1516, in pre_call_hook
+    raise e
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/utils.py", line 1462, in pre_call_hook
+    response: Exception | str | Mapping[str, object] | None = await _callback.async_pre_call_hook(
+                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/enterprise/enterprise_hooks/banned_keywords.py", line 85, in async_pre_call_hook
+    raise e
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/enterprise/enterprise_hooks/banned_keywords.py", line 82, in async_pre_call_hook
+    self.test_violation(test_str=text)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/enterprise/enterprise_hooks/banned_keywords.py", line 62, in test_violation
+    raise HTTPException(
+    ...<2 lines>...
+    )
+fastapi.exceptions.HTTPException: 400: {'error': 'Keyword banned. Keyword=litellm'}
+[92m04:26:47 - LiteLLM:DEBUG[0m: litellm_logging.py:600 - self.optional_params: {'messages': [{'role': 'user', 'content': 'What does litellm do?'}], 'secret_fields': {'raw_headers': RedactedDict(REDACTED)}}
+[92m04:26:47 - LiteLLM:DEBUG[0m: litellm_logging.py:1148 - [92m{'litellm_trace_id': 'f99e0c17-ae15-4c30-8d89-ad324c5f0550', 'litellm_call_id': '0eec8419-8b90-47f5-92e0-866e716fdbb3', 'input': [{'role': 'user', 'content': 'What does litellm do?'}], 'litellm_params': {'acompletion': None, 'allm_passthrough_route': None, 'api_key': None, 'force_timeout': 600, 'logger_fn': None, 'verbose': False, 'custom_llm_provider': None, 'api_base': '', 'data_residency': None, 'litellm_call_id': '0eec8419-8b90-47f5-92e0-866e716fdbb3', 'model_alias_map': None, 'completion_call_id': None, 'aembedding': None, 'metadata': {'headers': {'host': 'localhost:4000', 'user-agent': 'curl/8.7.1', 'accept': '*/*', 'content-type': 'application/json', 'content-length': '86'}, 'requester_metadata': {'headers': {'host': 'localhost:4000', 'user-agent': 'curl/8.7.1', 'accept': '*/*', 'content-type': 'application/json', 'content-length': '86'}}, 'user_api_key_hash': 'litellm_proxy_master_key', 'user_api_key_alias': None, 'user_api_key_spend': 0.0, 'user_api_key_max_budget': None, 'user_api_key_user_spend': None, 'user_api_key_user_max_budget': None, 'user_api_key_team_spend': None, 'user_api_key_team_max_budget': None, 'user_api_key_team_id': None, 'user_api_key_project_id': None, 'user_api_key_project_alias': None, 'user_api_key_user_id': 'default_user_id', 'user_api_key_org_id': None, 'user_api_key_org_alias': None, 'user_api_key_team_alias': None, 'user_api_key_end_user_id': None, 'user_api_key_user_email': None, 'user_api_key_request_route': '/chat/completions', 'user_api_key_budget_reset_at': None, 'user_api_key_auth_metadata': {}, 'user_REDACTED', 'agent_id': None, 'user_api_end_user_max_budget': None, 'user_api_key_auth': UserAPIKeyAuth(token='litellm_proxy_master_key', key_name=None, key_alias=None, spend=0.0, max_budget=None, expires=None, models=[], aliases={}, config={}, user_id='default_user_id', team_id=None, agent_id=None, project_id=None, max_parallel_requests=None, metadata={}, tpm_limit=None, rpm_limit=None, budget_duration=None, budget_reset_at=None, allowed_cache_controls=[], allowed_routes=[], key_type=None, permissions={}, model_spend={}, model_max_budget={}, budget_fallbacks={}, soft_budget_cooldown=False, blocked=None, litellm_budget_table=None, budget_id=None, org_id=None, created_at=None, created_by=None, updated_at=None, updated_by=None, settings_updated_at=None, last_active=None, object_permission_id=None, object_permission=None, access_group_ids=None, rotation_count=0, auto_rotate=False, rotation_interval=None, last_rotation_at=None, key_rotation_at=None, router_settings=None, budget_limits=None, team_spend=None, team_alias=None, team_tpm_limit=None, team_rpm_limit=None, team_max_budget=None, team_soft_budget=None, team_models=[], team_blocked=False, soft_budget=None, team_model_aliases=None, team_member=None, team_metadata=None, team_object_permission_id=None, team_member_spend=None, team_member_tpm_limit=None, team_member_rpm_limit=None, end_user_id=None, end_user_tpm_limit=None, end_user_rpm_limit=None, end_user_max_budget=None, end_user_model_max_budget=None, organization_alias=None, organization_max_budget=None, organization_tpm_limit=None, organization_rpm_limit=None, organization_metadata=None, project_alias=None, project_metadata=None, last_refreshed_at=1788056807.2215428, REDACTED', user_role=<LitellmUserRoles.PROXY_ADMIN: 'proxy_admin'>, allowed_model_region=None, parent_otel_span=None, rpm_limit_per_model=None, tpm_limit_per_model=None, user_tpm_limit=None, user_rpm_limit=None, user_email=None, user_spend=None, user_max_budget=None, request_route='/chat/completions', is_session_token=False, mcp_admitted_user_subject=False, mcp_source_team_rpm_limits=None, mcp_session_resource_server_id=None, via_virtual_key=True, budget_reservation=None, budget_throttle_pct=None, user=None, created_by_user=None, end_user_object_permission=None, team_object_permission=None, jwt_claims=None), 'litellm_api_version': '1.98.0', 'global_max_parallel_requests': None, 'inherited_tags': (), 'user_api_key_model_max_budget': {}, 'user_api_key_end_user_model_max_budget': None, 'user_api_key_metadata': {}, 'user_api_key_team_metadata': None, 'user_api_key_object_permission_id': None, 'user_api_key_team_object_permission_id': None, 'endpoint': 'http://localhost:4000/chat/completions', 'litellm_received_at': datetime.datetime(2026, 8, 30, 2, 26, 47, 219372, tzinfo=datetime.timezone.utc), 'litellm_parent_otel_span': None, 'requester_ip_address': '127.0.0.1', 'user_agent': 'curl/8.7.1', 'caller_tags': (), 'queue_time_seconds': 0.0026559829711914062}, 'model_info': None, 'proxy_server_request': {'url': 'http://localhost:4000/chat/completions', 'method': 'POST', 'headers': {'host': 'localhost:4000', 'user-agent': 'curl/8.7.1', 'accept': '*/*', 'content-type': 'application/json', 'content-length': '86'}, 'body': {'model': 'gpt-4o-mini', 'messages': [{'role': 'user', 'content': 'What does litellm do?'}], 'metadata': {'headers': {'host': 'localhost:4000', 'user-agent': 'curl/8.7.1', 'accept': '*/*', 'content-type': 'application/json', 'content-length': '86'}, 'requester_metadata': {'headers': {'host': 'localhost:4000', 'user-agent': 'curl/8.7.1', 'accept': '*/*', 'content-type': 'application/json', 'content-length': '86'}}, 'user_api_key_hash': 'litellm_proxy_master_key', 'user_api_key_alias': None, 'user_api_key_spend': 0.0, 'user_api_key_max_budget': None, 'user_api_key_user_spend': None, 'user_api_key_user_max_budget': None, 'user_api_key_team_spend': None, 'user_api_key_team_max_budget': None, 'user_api_key_team_id': None, 'user_api_key_project_id': None, 'user_api_key_project_alias': None, 'user_api_key_user_id': 'default_user_id', 'user_api_key_org_id': None, 'user_api_key_org_alias': None, 'user_api_key_team_alias': None, 'user_api_key_end_user_id': None, 'user_api_key_user_email': None, 'user_api_key_request_route': '/chat/completions', 'user_api_key_budget_reset_at': None, 'user_api_key_auth_metadata': {}, 'user_REDACTED', 'agent_id': None, 'user_api_end_user_max_budget': None, 'user_api_key_auth': UserAPIKeyAuth(token='litellm_proxy_master_key', key_name=None, key_alias=None, spend=0.0, max_budget=None, expires=None, models=[], aliases={}, config={}, user_id='default_user_id', team_id=None, agent_id=None, project_id=None, max_parallel_requests=None, metadata={}, tpm_limit=None, rpm_limit=None, budget_duration=None, budget_reset_at=None, allowed_cache_controls=[], allowed_routes=[], key_type=None, permissions={}, model_spend={}, model_max_budget={}, budget_fallbacks={}, soft_budget_cooldown=False, blocked=None, litellm_budget_table=None, budget_id=None, org_id=None, created_at=None, created_by=None, updated_at=None, updated_by=None, settings_updated_at=None, last_active=None, object_permission_id=None, object_permission=None, access_group_ids=None, rotation_count=0, auto_rotate=False, rotation_interval=None, last_rotation_at=None, key_rotation_at=None, router_settings=None, budget_limits=None, team_spend=None, team_alias=None, team_tpm_limit=None, team_rpm_limit=None, team_max_budget=None, team_soft_budget=None, team_models=[], team_blocked=False, soft_budget=None, team_model_aliases=None, team_member=None, team_metadata=None, team_object_permission_id=None, team_member_spend=None, team_member_tpm_limit=None, team_member_rpm_limit=None, end_user_id=None, end_user_tpm_limit=None, end_user_rpm_limit=None, end_user_max_budget=None, end_user_model_max_budget=None, organization_alias=None, organization_max_budget=None, organization_tpm_limit=None, organization_rpm_limit=None, organization_metadata=None, project_alias=None, project_metadata=None, last_refreshed_at=1788056807.2215428, REDACTED', user_role=<LitellmUserRoles.PROXY_ADMIN: 'proxy_admin'>, allowed_model_region=None, parent_otel_span=None, rpm_limit_per_model=None, tpm_limit_per_model=None, user_tpm_limit=None, user_rpm_limit=None, user_email=None, user_spend=None, user_max_budget=None, request_route='/chat/completions', is_session_token=False, mcp_admitted_user_subject=False, mcp_source_team_rpm_limits=None, mcp_session_resource_server_id=None, via_virtual_key=True, budget_reservation=None, budget_throttle_pct=None, user=None, created_by_user=None, end_user_object_permission=None, team_object_permission=None, jwt_claims=None), 'litellm_api_version': '1.98.0', 'global_max_parallel_requests': None, 'inherited_tags': (), 'user_api_key_model_max_budget': {}, 'user_api_key_end_user_model_max_budget': None, 'user_api_key_metadata': {}, 'user_api_key_team_metadata': None, 'user_api_key_object_permission_id': None, 'user_api_key_team_object_permission_id': None, 'endpoint': 'http://localhost:4000/chat/completions', 'litellm_received_at': datetime.datetime(2026, 8, 30, 2, 26, 47, 219372, tzinfo=datetime.timezone.utc), 'litellm_parent_otel_span': None, 'requester_ip_address': '127.0.0.1', 'user_agent': 'curl/8.7.1', 'caller_tags': (), 'queue_time_seconds': 0.0026559829711914062}}, 'arrival_time': 1788056807.9529579}, 'preset_cache_key': None, 'no-log': None, 'stream_response': {}, 'input_cost_per_token': None, 'input_cost_per_second': None, 'output_cost_per_token': None, 'output_cost_per_second': None, 'cost_per_query': None, 'cooldown_time': None, 'text_completion': None, 'azure_ad_token_provider': None, 'user_continue_message': None, 'base_model': None, 'litellm_trace_id': None, 'litellm_session_id': None, 'hf_model_name': None, 'custom_prompt_dict': None, 'litellm_metadata': None, 'disable_add_transform_inline_image_block': None, 'drop_params': None, 'prompt_id': None, 'prompt_variables': None, 'async_call': None, 'ssl_verify': None, 'merge_reasoning_content_in_choices': None, 'api_version': None, 'max_retries': None, 'use_litellm_proxy': None, 'litellm_request_debug': None}, 'applied_guardrails': [], 'model': 'gpt-4o-mini', 'messages': [{'role': 'user', 'content': 'What does litellm do?'}], 'optional_params': {'messages': [{'role': 'user', 'content': 'What does litellm do?'}], 'secret_fields': {'raw_headers': RedactedDict(REDACTED)}}, 'start_time': datetime.datetime(2026, 8, 30, 4, 26, 47, 952235), 'stream': False, 'user': '', 'call_type': 'acompletion', 'completion_start_time': None, 'standard_callback_dynamic_params': {}, 'stream_options': None, 'secret_fields': {'raw_headers': RedactedDict(REDACTED)}, 'litellm_no_upstream_llm_call': True, 'api_key': '', 'additional_args': {}, 'log_event_type': 'pre_api_call'}[0m
+
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <bound method Router.async_deployment_callback_on_failure of <litellm.router.Router object at 0x11ec49a90>> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm.proxy.hooks.litellm_skills.main.SkillsInjectionHook object at 0x11a9fa270> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm.proxy.hooks.model_max_budget_limiter._PROXY_VirtualKeyModelMaxBudgetLimiter object at 0x11d50aba0> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <enterprise.enterprise_hooks.banned_keywords._ENTERPRISE_BannedKeywords object at 0x11ec49be0> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm.proxy.hooks.max_budget_limiter._PROXY_MaxBudgetLimiter object at 0x11ec0a350> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm.proxy.hooks.parallel_request_limiter_v3._PROXY_MaxParallelRequestsHandler_v3 object at 0x11ec4acf0> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm.proxy.hooks.cache_control_check._PROXY_CacheControlCheck object at 0x11ec0afd0> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm.proxy.hooks.responses_id_security.ResponsesIDSecurity object at 0x11ec4b0e0> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm.proxy.hooks.max_iterations_limiter._PROXY_MaxIterationsHandler object at 0x11ec4b230> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm.proxy.hooks.max_budget_per_session_limiter._PROXY_MaxBudgetPerSessionHandler object at 0x11ec4b380> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm.proxy.hooks.sensitive_data_routing._PROXY_SensitiveDataRoutingHandler object at 0x11ec4b4d0> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm._service_logger.ServiceLogging object at 0x11d67f6f0> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: litellm_logging.py:2966 - Logging Details LiteLLM-Failure Call: [<bound method Router.deployment_callback_on_failure of <litellm.router.Router object at 0x11ec49a90>>, <litellm.proxy.hooks.litellm_skills.main.SkillsInjectionHook object at 0x11a9fa270>, <litellm.proxy.hooks.model_max_budget_limiter._PROXY_VirtualKeyModelMaxBudgetLimiter object at 0x11d50aba0>, <enterprise.enterprise_hooks.banned_keywords._ENTERPRISE_BannedKeywords object at 0x11ec49be0>, <litellm.proxy.hooks.max_budget_limiter._PROXY_MaxBudgetLimiter object at 0x11ec0a350>, <litellm.proxy.hooks.parallel_request_limiter_v3._PROXY_MaxParallelRequestsHandler_v3 object at 0x11ec4acf0>, <litellm.proxy.hooks.cache_control_check._PROXY_CacheControlCheck object at 0x11ec0afd0>, <litellm.proxy.hooks.responses_id_security.ResponsesIDSecurity object at 0x11ec4b0e0>, <litellm.proxy.hooks.max_iterations_limiter._PROXY_MaxIterationsHandler object at 0x11ec4b230>, <litellm.proxy.hooks.max_budget_per_session_limiter._PROXY_MaxBudgetPerSessionHandler object at 0x11ec4b380>, <litellm.proxy.hooks.sensitive_data_routing._PROXY_SensitiveDataRoutingHandler object at 0x11ec4b4d0>, <litellm._service_logger.ServiceLogging object at 0x11d67f6f0>]
+[92m04:26:47 - LiteLLM Proxy:DEBUG[0m: common_request_processing.py:2777 - [1;31mAn error occurred: 400: {'error': 'Keyword banned. Keyword=litellm'} 
+
+ Debug this by setting `--debug`, e.g. `litellm --model gpt-3.5-turbo --debug`
+INFO:     127.0.0.1:54101 - "POST /chat/completions HTTP/1.1" 400 Bad Request
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <bound method Router.deployment_callback_on_failure of <litellm.router.Router object at 0x11ec49a90>> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:47 - LiteLLM Router:DEBUG[0m: router.py:7185 - Router: Entering 'deployment_callback_on_failure'
+[92m04:26:47 - LiteLLM Router:DEBUG[0m: router.py:7248 - Router: Exiting 'deployment_callback_on_failure' without cooldown. No model_info found.
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm.proxy.hooks.litellm_skills.main.SkillsInjectionHook object at 0x11a9fa270> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm.proxy.hooks.model_max_budget_limiter._PROXY_VirtualKeyModelMaxBudgetLimiter object at 0x11d50aba0> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <enterprise.enterprise_hooks.banned_keywords._ENTERPRISE_BannedKeywords object at 0x11ec49be0> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm.proxy.hooks.max_budget_limiter._PROXY_MaxBudgetLimiter object at 0x11ec0a350> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm.proxy.hooks.parallel_request_limiter_v3._PROXY_MaxParallelRequestsHandler_v3 object at 0x11ec4acf0> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm.proxy.hooks.cache_control_check._PROXY_CacheControlCheck object at 0x11ec0afd0> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm.proxy.hooks.responses_id_security.ResponsesIDSecurity object at 0x11ec4b0e0> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm.proxy.hooks.max_iterations_limiter._PROXY_MaxIterationsHandler object at 0x11ec4b230> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm.proxy.hooks.max_budget_per_session_limiter._PROXY_MaxBudgetPerSessionHandler object at 0x11ec4b380> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm.proxy.hooks.sensitive_data_routing._PROXY_SensitiveDataRoutingHandler object at 0x11ec4b4d0> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:47 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm._service_logger.ServiceLogging object at 0x11d67f6f0> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:47 - LiteLLM Proxy:DEBUG[0m: http_parsing_utils.py:551 - populate_request_with_path_params: No vector_store_id present in path=/chat/completions
+[92m04:26:47 - LiteLLM:DEBUG[0m: user_api_key_auth.py:1584 - api key not found in cache.
+[92m04:26:47 - LiteLLM Proxy:DEBUG[0m: user_api_key_auth.py:2136 - centralized auth: user fetch swallowed (ModuleNotFoundError: No module named 'prisma')
+[92m04:26:47 - LiteLLM Proxy:DEBUG[0m: auth_checks.py:4857 - Prisma client not found, skipping vector store access check
+[92m04:26:47 - LiteLLM Proxy:DEBUG[0m: common_request_processing.py:1707 - Request received by LiteLLM:
+{"model": "gpt-4o-mini", "messages": [{"role": "user", "content": "Say hello in one word."}], "metadata": {"user_api_key_user_id": "default_user_id"}}
+[92m04:26:47 - LiteLLM Proxy:DEBUG[0m: litellm_pre_call_utils.py:1615 - Request Headers: {'host': 'localhost:4000', 'user-agent': 'curl/8.7.1', 'accept': '*/*', 'content-type': 'application/json', 'content-length': '87'}
+[92m04:26:47 - LiteLLM Proxy:DEBUG[0m: litellm_pre_call_utils.py:1616 - Raw Headers: RedactedDict(REDACTED)
+[92m04:26:47 - LiteLLM Proxy:DEBUG[0m: litellm_pre_call_utils.py:1712 - receiving data: {'model': 'gpt-4o-mini', 'messages': [{'role': 'user', 'content': 'Say hello in one word.'}], 'metadata': {'headers': {'host': 'localhost:4000', 'user-agent': 'curl/8.7.1', 'accept': '*/*', 'content-type': 'application/json', 'content-length': '87'}}, 'proxy_server_request': {'url': 'http://localhost:4000/chat/completions', 'method': 'POST', 'headers': {'host': 'localhost:4000', 'user-agent': 'curl/8.7.1', 'accept': '*/*', 'content-type': 'application/json', 'content-length': '87'}, 'body': None, 'arrival_time': 1788056807.981845}, 'secret_fields': {'raw_headers': RedactedDict(REDACTED)}}
+[92m04:26:47 - LiteLLM Proxy:DEBUG[0m: litellm_pre_call_utils.py:2054 - [PROXY] returned data from litellm_pre_call_utils: {'model': 'gpt-4o-mini', 'messages': [{'role': 'user', 'content': 'Say hello in one word.'}], 'metadata': {'headers': {'host': 'localhost:4000', 'user-agent': 'curl/8.7.1', 'accept': '*/*', 'content-type': 'application/json', 'content-length': '87'}, 'requester_metadata': {'headers': {'host': 'localhost:4000', 'user-agent': 'curl/8.7.1', 'accept': '*/*', 'content-type': 'application/json', 'content-length': '87'}}, 'user_api_key_hash': 'litellm_proxy_master_key', 'user_api_key_alias': None, 'user_api_key_spend': 0.0, 'user_api_key_max_budget': None, 'user_api_key_user_spend': None, 'user_api_key_user_max_budget': None, 'user_api_key_team_spend': None, 'user_api_key_team_max_budget': None, 'user_api_key_team_id': None, 'user_api_key_project_id': None, 'user_api_key_project_alias': None, 'user_api_key_user_id': 'default_user_id', 'user_api_key_org_id': None, 'user_api_key_org_alias': None, 'user_api_key_team_alias': None, 'user_api_key_end_user_id': None, 'user_api_key_user_email': None, 'user_api_key_request_route': '/chat/completions', 'user_api_key_budget_reset_at': None, 'user_api_key_auth_metadata': {}, 'user_REDACTED', 'agent_id': None, 'user_api_end_user_max_budget': None, 'user_api_key_auth': UserAPIKeyAuth(token='litellm_proxy_master_key', key_name=None, key_alias=None, spend=0.0, max_budget=None, expires=None, models=[], aliases={}, config={}, user_id='default_user_id', team_id=None, agent_id=None, project_id=None, max_parallel_requests=None, metadata={}, tpm_limit=None, rpm_limit=None, budget_duration=None, budget_reset_at=None, allowed_cache_controls=[], allowed_routes=[], key_type=None, permissions={}, model_spend={}, model_max_budget={}, budget_fallbacks={}, soft_budget_cooldown=False, blocked=None, litellm_budget_table=None, budget_id=None, org_id=None, created_at=None, created_by=None, updated_at=None, updated_by=None, settings_updated_at=None, last_active=None, object_permission_id=None, object_permission=None, access_group_ids=None, rotation_count=0, auto_rotate=False, rotation_interval=None, last_rotation_at=None, key_rotation_at=None, router_settings=None, budget_limits=None, team_spend=None, team_alias=None, team_tpm_limit=None, team_rpm_limit=None, team_max_budget=None, team_soft_budget=None, team_models=[], team_blocked=False, soft_budget=None, team_model_aliases=None, team_member=None, team_metadata=None, team_object_permission_id=None, team_member_spend=None, team_member_tpm_limit=None, team_member_rpm_limit=None, end_user_id=None, end_user_tpm_limit=None, end_user_rpm_limit=None, end_user_max_budget=None, end_user_model_max_budget=None, organization_alias=None, organization_max_budget=None, organization_tpm_limit=None, organization_rpm_limit=None, organization_metadata=None, project_alias=None, project_metadata=None, last_refreshed_at=1788056807.9809952, REDACTED', user_role=<LitellmUserRoles.PROXY_ADMIN: 'proxy_admin'>, allowed_model_region=None, parent_otel_span=None, rpm_limit_per_model=None, tpm_limit_per_model=None, user_tpm_limit=None, user_rpm_limit=None, user_email=None, user_spend=None, user_max_budget=None, request_route='/chat/completions', is_session_token=False, mcp_admitted_user_subject=False, mcp_source_team_rpm_limits=None, mcp_session_resource_server_id=None, via_virtual_key=True, budget_reservation=None, budget_throttle_pct=None, user=None, created_by_user=None, end_user_object_permission=None, team_object_permission=None, jwt_claims=None), 'litellm_api_version': '1.98.0', 'global_max_parallel_requests': None, 'inherited_tags': (), 'user_api_key_model_max_budget': {}, 'user_api_key_end_user_model_max_budget': None, 'user_api_key_metadata': {}, 'user_api_key_team_metadata': None, 'user_api_key_object_permission_id': None, 'user_api_key_team_object_permission_id': None, 'endpoint': 'http://localhost:4000/chat/completions', 'litellm_received_at': datetime.datetime(2026, 8, 30, 2, 26, 47, 980686, tzinfo=datetime.timezone.utc), 'litellm_parent_otel_span': None, 'requester_ip_address': '127.0.0.1', 'user_agent': 'curl/8.7.1', 'caller_tags': ()}, 'proxy_server_request': {'url': 'http://localhost:4000/chat/completions', 'method': 'POST', 'headers': {'host': 'localhost:4000', 'user-agent': 'curl/8.7.1', 'accept': '*/*', 'content-type': 'application/json', 'content-length': '87'}, 'body': {'model': 'gpt-4o-mini', 'messages': [{'role': 'user', 'content': 'Say hello in one word.'}], 'metadata': {'headers': {'host': 'localhost:4000', 'user-agent': 'curl/8.7.1', 'accept': '*/*', 'content-type': 'application/json', 'content-length': '87'}, 'requester_metadata': {'headers': {'host': 'localhost:4000', 'user-agent': 'curl/8.7.1', 'accept': '*/*', 'content-type': 'application/json', 'content-length': '87'}}, 'user_api_key_hash': 'litellm_proxy_master_key', 'user_api_key_alias': None, 'user_api_key_spend': 0.0, 'user_api_key_max_budget': None, 'user_api_key_user_spend': None, 'user_api_key_user_max_budget': None, 'user_api_key_team_spend': None, 'user_api_key_team_max_budget': None, 'user_api_key_team_id': None, 'user_api_key_project_id': None, 'user_api_key_project_alias': None, 'user_api_key_user_id': 'default_user_id', 'user_api_key_org_id': None, 'user_api_key_org_alias': None, 'user_api_key_team_alias': None, 'user_api_key_end_user_id': None, 'user_api_key_user_email': None, 'user_api_key_request_route': '/chat/completions', 'user_api_key_budget_reset_at': None, 'user_api_key_auth_metadata': {}, 'user_REDACTED', 'agent_id': None, 'user_api_end_user_max_budget': None, 'user_api_key_auth': UserAPIKeyAuth(token='litellm_proxy_master_key', key_name=None, key_alias=None, spend=0.0, max_budget=None, expires=None, models=[], aliases={}, config={}, user_id='default_user_id', team_id=None, agent_id=None, project_id=None, max_parallel_requests=None, metadata={}, tpm_limit=None, rpm_limit=None, budget_duration=None, budget_reset_at=None, allowed_cache_controls=[], allowed_routes=[], key_type=None, permissions={}, model_spend={}, model_max_budget={}, budget_fallbacks={}, soft_budget_cooldown=False, blocked=None, litellm_budget_table=None, budget_id=None, org_id=None, created_at=None, created_by=None, updated_at=None, updated_by=None, settings_updated_at=None, last_active=None, object_permission_id=None, object_permission=None, access_group_ids=None, rotation_count=0, auto_rotate=False, rotation_interval=None, last_rotation_at=None, key_rotation_at=None, router_settings=None, budget_limits=None, team_spend=None, team_alias=None, team_tpm_limit=None, team_rpm_limit=None, team_max_budget=None, team_soft_budget=None, team_models=[], team_blocked=False, soft_budget=None, team_model_aliases=None, team_member=None, team_metadata=None, team_object_permission_id=None, team_member_spend=None, team_member_tpm_limit=None, team_member_rpm_limit=None, end_user_id=None, end_user_tpm_limit=None, end_user_rpm_limit=None, end_user_max_budget=None, end_user_model_max_budget=None, organization_alias=None, organization_max_budget=None, organization_tpm_limit=None, organization_rpm_limit=None, organization_metadata=None, project_alias=None, project_metadata=None, last_refreshed_at=1788056807.9809952, REDACTED', user_role=<LitellmUserRoles.PROXY_ADMIN: 'proxy_admin'>, allowed_model_region=None, parent_otel_span=None, rpm_limit_per_model=None, tpm_limit_per_model=None, user_tpm_limit=None, user_rpm_limit=None, user_email=None, user_spend=None, user_max_budget=None, request_route='/chat/completions', is_session_token=False, mcp_admitted_user_subject=False, mcp_source_team_rpm_limits=None, mcp_session_resource_server_id=None, via_virtual_key=True, budget_reservation=None, budget_throttle_pct=None, user=None, created_by_user=None, end_user_object_permission=None, team_object_permission=None, jwt_claims=None), 'litellm_api_version': '1.98.0', 'global_max_parallel_requests': None, 'inherited_tags': (), 'user_api_key_model_max_budget': {}, 'user_api_key_end_user_model_max_budget': None, 'user_api_key_metadata': {}, 'user_api_key_team_metadata': None, 'user_api_key_object_permission_id': None, 'user_api_key_team_object_permission_id': None, 'endpoint': 'http://localhost:4000/chat/completions', 'litellm_received_at': datetime.datetime(2026, 8, 30, 2, 26, 47, 980686, tzinfo=datetime.timezone.utc), 'litellm_parent_otel_span': None, 'requester_ip_address': '127.0.0.1', 'user_agent': 'curl/8.7.1', 'caller_tags': ()}}, 'arrival_time': 1788056807.981845}, 'secret_fields': {'raw_headers': RedactedDict(REDACTED)}}
+[92m04:26:47 - LiteLLM:DEBUG[0m: utils.py:493 - Initialized litellm callbacks, Async Success Callbacks: [<bound method Router.deployment_callback_on_success of <litellm.router.Router object at 0x11ec49a90>>, <litellm.proxy.hooks.litellm_skills.main.SkillsInjectionHook object at 0x11a9fa270>, <litellm.proxy.hooks.model_max_budget_limiter._PROXY_VirtualKeyModelMaxBudgetLimiter object at 0x11d50aba0>, <enterprise.enterprise_hooks.banned_keywords._ENTERPRISE_BannedKeywords object at 0x11ec49be0>, <litellm.proxy.hooks.max_budget_limiter._PROXY_MaxBudgetLimiter object at 0x11ec0a350>, <litellm.proxy.hooks.parallel_request_limiter_v3._PROXY_MaxParallelRequestsHandler_v3 object at 0x11ec4acf0>, <litellm.proxy.hooks.cache_control_check._PROXY_CacheControlCheck object at 0x11ec0afd0>, <litellm.proxy.hooks.responses_id_security.ResponsesIDSecurity object at 0x11ec4b0e0>, <litellm.proxy.hooks.max_iterations_limiter._PROXY_MaxIterationsHandler object at 0x11ec4b230>, <litellm.proxy.hooks.max_budget_per_session_limiter._PROXY_MaxBudgetPerSessionHandler object at 0x11ec4b380>, <litellm.proxy.hooks.sensitive_data_routing._PROXY_SensitiveDataRoutingHandler object at 0x11ec4b4d0>, <litellm._service_logger.ServiceLogging object at 0x11d67f6f0>]
+[92m04:26:47 - LiteLLM:DEBUG[0m: utils.py:997 - Removing thought signatures from tool call IDs for non-Gemini model
+[92m04:26:47 - LiteLLM:DEBUG[0m: litellm_logging.py:600 - self.optional_params: {}
+[92m04:26:47 - LiteLLM Proxy:DEBUG[0m: utils.py:1372 - Inside Proxy Logging Pre-call hook!
+[92m04:26:47 - LiteLLM Proxy:DEBUG[0m: banned_keywords.py:54 - Inside Banned Keyword List Pre-Call Hook
+[92m04:26:47 - LiteLLM Proxy:DEBUG[0m: max_budget_limiter.py:28 - Inside Max Budget Limiter Pre-Call Hook
+[92m04:26:47 - LiteLLM Proxy:DEBUG[0m: parallel_request_limiter_v3.py:2492 - Inside Rate Limit Pre-Call Hook
+[92m04:26:47 - LiteLLM Proxy:DEBUG[0m: cache_control_check.py:29 - Inside Cache Control Check Pre-Call Hook
+[92m04:26:47 - LiteLLM Proxy:INFO[0m: route_llm_request.py:265 - SESSION REUSE: Attached shared aiohttp session to request (ID: 4811886608)
+[92m04:26:47 - LiteLLM Router:DEBUG[0m: router.py:6628 - Inside async function with retries.
+[92m04:26:47 - LiteLLM Router:DEBUG[0m: router.py:6651 - async function w/ retries: original_function - <bound method Router._acompletion of <litellm.router.Router object at 0x11ec49a90>>, num_retries - 2
+[92m04:26:47 - LiteLLM Router:DEBUG[0m: router.py:1267 - routing_group=default model=gpt-4o-mini strategy=simple-shuffle
+[92m04:26:47 - LiteLLM Router:DEBUG[0m: router.py:10876 - initial list of deployments: [{'model_name': 'gpt-4o-mini', 'litellm_params': {'REDACTED', 'allow_client_keepalive_override': False, 'use_in_pass_through': False, 'use_litellm_proxy': False, 'use_xai_oauth': False, 'merge_reasoning_content_in_choices': False, 'model': 'openai/gpt-4o-mini'}, 'model_info': {'id': '85bd11d90c2aa581b011c1efdb503ddb66be3a6cc30570a574143ab27b9cf497', 'db_model': False}}]
+[92m04:26:47 - LiteLLM Router:DEBUG[0m: router.py:11009 - healthy_deployments after team filter: [{'model_name': 'gpt-4o-mini', 'litellm_params': {'REDACTED', 'allow_client_keepalive_override': False, 'use_in_pass_through': False, 'use_litellm_proxy': False, 'use_xai_oauth': False, 'merge_reasoning_content_in_choices': False, 'model': 'openai/gpt-4o-mini'}, 'model_info': {'id': '85bd11d90c2aa581b011c1efdb503ddb66be3a6cc30570a574143ab27b9cf497', 'db_model': False}}]
+[92m04:26:47 - LiteLLM Router:DEBUG[0m: router.py:11017 - healthy_deployments after web search filter: [{'model_name': 'gpt-4o-mini', 'litellm_params': {'REDACTED', 'allow_client_keepalive_override': False, 'use_in_pass_through': False, 'use_litellm_proxy': False, 'use_xai_oauth': False, 'merge_reasoning_content_in_choices': False, 'model': 'openai/gpt-4o-mini'}, 'model_info': {'id': '85bd11d90c2aa581b011c1efdb503ddb66be3a6cc30570a574143ab27b9cf497', 'db_model': False}}]
+[92m04:26:47 - LiteLLM Router:DEBUG[0m: cooldown_handlers.py:500 - retrieve cooldown models: []
+[92m04:26:47 - LiteLLM Router:DEBUG[0m: router.py:11038 - cooldown deployments: []
+[92m04:26:47 - LiteLLM Router:DEBUG[0m: router.py:11987 - cooldown deployments: []
+[92m04:26:47 - LiteLLM:DEBUG[0m: utils.py:493 - 
+
+[92m04:26:47 - LiteLLM:DEBUG[0m: utils.py:493 - [92mRequest to litellm:[0m
+[92m04:26:47 - LiteLLM:DEBUG[0m: utils.py:493 - [92mlitellm.acompletion(REDACTED', allow_client_keepalive_override=False, use_in_pass_through=False, use_litellm_proxy=False, use_xai_oauth=False, merge_reasoning_content_in_choices=False, model='openai/gpt-4o-mini', messages=[{'role': 'user', 'content': 'Say hello in one word.'}], caching=False, client=None, metadata={'headers': {'host': 'localhost:4000', 'user-agent': 'curl/8.7.1', 'accept': '*/*', 'content-type': 'application/json', 'content-length': '87'}, 'requester_metadata': {'headers': {'host': 'localhost:4000', 'user-agent': 'curl/8.7.1', 'accept': '*/*', 'content-type': 'application/json', 'content-length': '87'}}, 'user_api_key_hash': 'litellm_proxy_master_key', 'user_api_key_alias': None, 'user_api_key_spend': 0.0, 'user_api_key_max_budget': None, 'user_api_key_user_spend': None, 'user_api_key_user_max_budget': None, 'user_api_key_team_spend': None, 'user_api_key_team_max_budget': None, 'user_api_key_team_id': None, 'user_api_key_project_id': None, 'user_api_key_project_alias': None, 'user_api_key_user_id': 'default_user_id', 'user_api_key_org_id': None, 'user_api_key_org_alias': None, 'user_api_key_team_alias': None, 'user_api_key_end_user_id': None, 'user_api_key_user_email': None, 'user_api_key_request_route': '/chat/completions', 'user_api_key_budget_reset_at': None, 'user_api_key_auth_metadata': {}, 'user_REDACTED', 'agent_id': None, 'user_api_end_user_max_budget': None, 'user_api_key_auth': UserAPIKeyAuth(token='litellm_proxy_master_key', key_name=None, key_alias=None, spend=0.0, max_budget=None, expires=None, models=[], aliases={}, config={}, user_id='default_user_id', team_id=None, agent_id=None, project_id=None, max_parallel_requests=None, metadata={}, tpm_limit=None, rpm_limit=None, budget_duration=None, budget_reset_at=None, allowed_cache_controls=[], allowed_routes=[], key_type=None, permissions={}, model_spend={}, model_max_budget={}, budget_fallbacks={}, soft_budget_cooldown=False, blocked=None, litellm_budget_table=None, budget_id=None, org_id=None, created_at=None, created_by=None, updated_at=None, updated_by=None, settings_updated_at=None, last_active=None, object_permission_id=None, object_permission=None, access_group_ids=None, rotation_count=0, auto_rotate=False, rotation_interval=None, last_rotation_at=None, key_rotation_at=None, router_settings=None, budget_limits=None, team_spend=None, team_alias=None, team_tpm_limit=None, team_rpm_limit=None, team_max_budget=None, team_soft_budget=None, team_models=[], team_blocked=False, soft_budget=None, team_model_aliases=None, team_member=None, team_metadata=None, team_object_permission_id=None, team_member_spend=None, team_member_tpm_limit=None, team_member_rpm_limit=None, end_user_id=None, end_user_tpm_limit=None, end_user_rpm_limit=None, end_user_max_budget=None, end_user_model_max_budget=None, organization_alias=None, organization_max_budget=None, organization_tpm_limit=None, organization_rpm_limit=None, organization_metadata=None, project_alias=None, project_metadata=None, last_refreshed_at=1788056807.9809952, REDACTED', user_role=<LitellmUserRoles.PROXY_ADMIN: 'proxy_admin'>, allowed_model_region=None, parent_otel_span=None, rpm_limit_per_model=None, tpm_limit_per_model=None, user_tpm_limit=None, user_rpm_limit=None, user_email=None, user_spend=None, user_max_budget=None, request_route='/chat/completions', is_session_token=False, mcp_admitted_user_subject=False, mcp_source_team_rpm_limits=None, mcp_session_resource_server_id=None, via_virtual_key=True, budget_reservation=None, budget_throttle_pct=None, user=None, created_by_user=None, end_user_object_permission=None, team_object_permission=None, jwt_claims=None), 'litellm_api_version': '1.98.0', 'global_max_parallel_requests': None, 'inherited_tags': (), 'user_api_key_model_max_budget': {}, 'user_api_key_end_user_model_max_budget': None, 'user_api_key_metadata': {}, 'user_api_key_team_metadata': None, 'user_api_key_object_permission_id': None, 'user_api_key_team_object_permission_id': None, 'endpoint': 'http://localhost:4000/chat/completions', 'litellm_received_at': datetime.datetime(2026, 8, 30, 2, 26, 47, 980686, tzinfo=datetime.timezone.utc), 'litellm_parent_otel_span': None, 'requester_ip_address': '127.0.0.1', 'user_agent': 'curl/8.7.1', 'caller_tags': (), 'queue_time_seconds': 0.0026121139526367188, 'model_group': 'gpt-4o-mini', 'model_group_alias': None, 'model_group_size': 1, 'attempted_retries': 0, 'max_retries': 2, 'deployment': 'openai/gpt-4o-mini', 'model_info': {'id': '85bd11d90c2aa581b011c1efdb503ddb66be3a6cc30570a574143ab27b9cf497', 'db_model': False}, 'api_base': None, 'deployment_model_name': 'gpt-4o-mini', 'caching_groups': None}, proxy_server_request={'url': 'http://localhost:4000/chat/completions', 'method': 'POST', 'headers': {'host': 'localhost:4000', 'user-agent': 'curl/8.7.1', 'accept': '*/*', 'content-type': 'application/json', 'content-length': '87'}, 'body': {'model': 'gpt-4o-mini', 'messages': [{'role': 'user', 'content': 'Say hello in one word.'}], 'metadata': {'headers': {'host': 'localhost:4000', 'user-agent': 'curl/8.7.1', 'accept': '*/*', 'content-type': 'application/json', 'content-length': '87'}, 'requester_metadata': {'headers': {'host': 'localhost:4000', 'user-agent': 'curl/8.7.1', 'accept': '*/*', 'content-type': 'application/json', 'content-length': '87'}}, 'user_api_key_hash': 'litellm_proxy_master_key', 'user_api_key_alias': None, 'user_api_key_spend': 0.0, 'user_api_key_max_budget': None, 'user_api_key_user_spend': None, 'user_api_key_user_max_budget': None, 'user_api_key_team_spend': None, 'user_api_key_team_max_budget': None, 'user_api_key_team_id': None, 'user_api_key_project_id': None, 'user_api_key_project_alias': None, 'user_api_key_user_id': 'default_user_id', 'user_api_key_org_id': None, 'user_api_key_org_alias': None, 'user_api_key_team_alias': None, 'user_api_key_end_user_id': None, 'user_api_key_user_email': None, 'user_api_key_request_route': '/chat/completions', 'user_api_key_budget_reset_at': None, 'user_api_key_auth_metadata': {}, 'user_REDACTED', 'agent_id': None, 'user_api_end_user_max_budget': None, 'user_api_key_auth': UserAPIKeyAuth(token='litellm_proxy_master_key', key_name=None, key_alias=None, spend=0.0, max_budget=None, expires=None, models=[], aliases={}, config={}, user_id='default_user_id', team_id=None, agent_id=None, project_id=None, max_parallel_requests=None, metadata={}, tpm_limit=None, rpm_limit=None, budget_duration=None, budget_reset_at=None, allowed_cache_controls=[], allowed_routes=[], key_type=None, permissions={}, model_spend={}, model_max_budget={}, budget_fallbacks={}, soft_budget_cooldown=False, blocked=None, litellm_budget_table=None, budget_id=None, org_id=None, created_at=None, created_by=None, updated_at=None, updated_by=None, settings_updated_at=None, last_active=None, object_permission_id=None, object_permission=None, access_group_ids=None, rotation_count=0, auto_rotate=False, rotation_interval=None, last_rotation_at=None, key_rotation_at=None, router_settings=None, budget_limits=None, team_spend=None, team_alias=None, team_tpm_limit=None, team_rpm_limit=None, team_max_budget=None, team_soft_budget=None, team_models=[], team_blocked=False, soft_budget=None, team_model_aliases=None, team_member=None, team_metadata=None, team_object_permission_id=None, team_member_spend=None, team_member_tpm_limit=None, team_member_rpm_limit=None, end_user_id=None, end_user_tpm_limit=None, end_user_rpm_limit=None, end_user_max_budget=None, end_user_model_max_budget=None, organization_alias=None, organization_max_budget=None, organization_tpm_limit=None, organization_rpm_limit=None, organization_metadata=None, project_alias=None, project_metadata=None, last_refreshed_at=1788056807.9809952, REDACTED', user_role=<LitellmUserRoles.PROXY_ADMIN: 'proxy_admin'>, allowed_model_region=None, parent_otel_span=None, rpm_limit_per_model=None, tpm_limit_per_model=None, user_tpm_limit=None, user_rpm_limit=None, user_email=None, user_spend=None, user_max_budget=None, request_route='/chat/completions', is_session_token=False, mcp_admitted_user_subject=False, mcp_source_team_rpm_limits=None, mcp_session_resource_server_id=None, via_virtual_key=True, budget_reservation=None, budget_throttle_pct=None, user=None, created_by_user=None, end_user_object_permission=None, team_object_permission=None, jwt_claims=None), 'litellm_api_version': '1.98.0', 'global_max_parallel_requests': None, 'inherited_tags': (), 'user_api_key_model_max_budget': {}, 'user_api_key_end_user_model_max_budget': None, 'user_api_key_metadata': {}, 'user_api_key_team_metadata': None, 'user_api_key_object_permission_id': None, 'user_api_key_team_object_permission_id': None, 'endpoint': 'http://localhost:4000/chat/completions', 'litellm_received_at': datetime.datetime(2026, 8, 30, 2, 26, 47, 980686, tzinfo=datetime.timezone.utc), 'litellm_parent_otel_span': None, 'requester_ip_address': '127.0.0.1', 'user_agent': 'curl/8.7.1', 'caller_tags': (), 'queue_time_seconds': 0.0026121139526367188, 'model_group': 'gpt-4o-mini', 'model_group_alias': None, 'model_group_size': 1, 'attempted_retries': 0, 'max_retries': 2, 'deployment': 'openai/gpt-4o-mini', 'model_info': {'id': '85bd11d90c2aa581b011c1efdb503ddb66be3a6cc30570a574143ab27b9cf497', 'db_model': False}, 'api_base': None, 'deployment_model_name': 'gpt-4o-mini', 'caching_groups': None}}, 'arrival_time': 1788056807.981845}, secret_fields={'raw_headers': RedactedDict(REDACTED)}, litellm_call_id='1859f9df-6776-4b6d-828e-e0a57510bc2f', litellm_logging_obj=<litellm.litellm_core_utils.litellm_logging.Logging object at 0x11f4ae210>, shared_session=<aiohttp.client.ClientSession object at 0x11ecf9010>, stream=False, litellm_trace_id='4afc9eae-812c-4877-8290-06e72a35a9d3', model_info={'id': '85bd11d90c2aa581b011c1efdb503ddb66be3a6cc30570a574143ab27b9cf497', 'db_model': False}, timeout=6000.0, max_retries=0)[0m
+[92m04:26:47 - LiteLLM:DEBUG[0m: utils.py:493 - 
+
+[92m04:26:47 - LiteLLM:DEBUG[0m: utils.py:493 - ASYNC kwargs[caching]: False; litellm.cache: None; kwargs.get('cache'): None
+[92m04:26:47 - LiteLLM:DEBUG[0m: main.py:546 - 🔄 SHARED SESSION: acompletion called with shared_session (ID: 4811886608)
+[92m04:26:47 - LiteLLM:DEBUG[0m: utils.py:5422 - checking potential_model_names in litellm.model_cost: {'split_model': 'gpt-4o-mini', 'combined_model_name': 'openai/gpt-4o-mini', 'stripped_model_name': 'gpt-4o-mini', 'combined_stripped_model_name': 'openai/gpt-4o-mini', 'custom_llm_provider': 'openai'}
+[92m04:26:47 - LiteLLM:INFO[0m: utils.py:4012 - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+[92m04:26:47 - LiteLLM:DEBUG[0m: utils.py:4013 - 
+LiteLLM: Params passed to completion() {'model': 'gpt-4o-mini', 'functions': None, 'function_call': None, 'temperature': None, 'top_p': None, 'n': None, 'stream': False, 'stream_options': None, 'stop': None, 'max_tokens': None, 'max_completion_tokens': None, 'modalities': None, 'prediction': None, 'audio': None, 'presence_penalty': None, 'frequency_penalty': None, 'logit_bias': None, 'user': None, 'custom_llm_provider': 'openai', 'response_format': None, 'seed': None, 'tools': None, 'tool_choice': None, 'max_retries': 0, 'logprobs': None, 'top_logprobs': None, 'extra_headers': None, 'api_version': None, 'parallel_tool_calls': None, 'drop_params': None, 'allowed_openai_params': None, 'reasoning_effort': None, 'verbosity': None, 'additional_drop_params': None, 'messages': [{'role': 'user', 'content': 'Say hello in one word.'}], 'thinking': None, 'web_search_options': None, 'safety_identifier': None, 'include_server_side_tool_invocations': None, 'service_tier': None}
+[92m04:26:47 - LiteLLM:DEBUG[0m: utils.py:4014 - 
+LiteLLM: Non-Default params passed to completion() {'stream': False, 'max_retries': 0}
+[92m04:26:47 - LiteLLM:DEBUG[0m: utils.py:493 - Final returned optional params: {'stream': False, 'max_retries': 0, 'extra_body': {}}
+[92m04:26:47 - LiteLLM:DEBUG[0m: litellm_logging.py:600 - self.optional_params: {'stream': False, 'max_retries': 0, 'extra_body': {}}
+[92m04:26:47 - LiteLLM:DEBUG[0m: utils.py:5422 - checking potential_model_names in litellm.model_cost: {'split_model': 'gpt-4o-mini', 'combined_model_name': 'openai/gpt-4o-mini', 'stripped_model_name': 'gpt-4o-mini', 'combined_stripped_model_name': 'openai/gpt-4o-mini', 'custom_llm_provider': 'openai'}
+[92m04:26:47 - LiteLLM:DEBUG[0m: http_handler.py:1004 - Using AiohttpTransport...
+[92m04:26:47 - LiteLLM:DEBUG[0m: http_handler.py:1070 - Creating AiohttpTransport...
+[92m04:26:47 - LiteLLM:DEBUG[0m: http_handler.py:1098 - SHARED SESSION: Reusing existing ClientSession (ID: 4811886608)
+[92m04:26:47 - LiteLLM:DEBUG[0m: litellm_logging.py:1148 - [92m
+
+POST Request Sent from LiteLLM:
+curl -X POST \
+https://api.openai.com/v1/ \
+-H 'Authorization: Be****my' \
+-d '{'model': 'gpt-4o-mini', 'messages': [{'role': 'user', 'content': 'Say hello in one word.'}], 'extra_body': {}}'
+[0m
+
+[92m04:26:48 - LiteLLM:DEBUG[0m: exception_mapping_utils.py:2534 - Logging Details: logger_fn - None | callable(logger_fn) - False
+[92m04:26:48 - LiteLLM:DEBUG[0m: litellm_logging.py:2966 - Logging Details LiteLLM-Failure Call: [<bound method Router.deployment_callback_on_failure of <litellm.router.Router object at 0x11ec49a90>>, <litellm.proxy.hooks.litellm_skills.main.SkillsInjectionHook object at 0x11a9fa270>, <litellm.proxy.hooks.model_max_budget_limiter._PROXY_VirtualKeyModelMaxBudgetLimiter object at 0x11d50aba0>, <enterprise.enterprise_hooks.banned_keywords._ENTERPRISE_BannedKeywords object at 0x11ec49be0>, <litellm.proxy.hooks.max_budget_limiter._PROXY_MaxBudgetLimiter object at 0x11ec0a350>, <litellm.proxy.hooks.parallel_request_limiter_v3._PROXY_MaxParallelRequestsHandler_v3 object at 0x11ec4acf0>, <litellm.proxy.hooks.cache_control_check._PROXY_CacheControlCheck object at 0x11ec0afd0>, <litellm.proxy.hooks.responses_id_security.ResponsesIDSecurity object at 0x11ec4b0e0>, <litellm.proxy.hooks.max_iterations_limiter._PROXY_MaxIterationsHandler object at 0x11ec4b230>, <litellm.proxy.hooks.max_budget_per_session_limiter._PROXY_MaxBudgetPerSessionHandler object at 0x11ec4b380>, <litellm.proxy.hooks.sensitive_data_routing._PROXY_SensitiveDataRoutingHandler object at 0x11ec4b4d0>, <litellm._service_logger.ServiceLogging object at 0x11d67f6f0>]
+[92m04:26:48 - LiteLLM:DEBUG[0m: utils.py:5422 - checking potential_model_names in litellm.model_cost: {'split_model': 'gpt-4o-mini', 'combined_model_name': 'openai/gpt-4o-mini', 'stripped_model_name': 'gpt-4o-mini', 'combined_stripped_model_name': 'openai/gpt-4o-mini', 'custom_llm_provider': 'openai'}
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <bound method Router.deployment_callback_on_failure of <litellm.router.Router object at 0x11ec49a90>> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:48 - LiteLLM Router:DEBUG[0m: router.py:7185 - Router: Entering 'deployment_callback_on_failure'
+[92m04:26:48 - LiteLLM Router:DEBUG[0m: cooldown_handlers.py:432 - checks 'should_run_cooldown_logic'
+[92m04:26:48 - LiteLLM Router:DEBUG[0m: cooldown_handlers.py:449 - Attempting to add 85bd11d90c2aa581b011c1efdb503ddb66be3a6cc30570a574143ab27b9cf497 to cooldown list
+[92m04:26:48 - LiteLLM Router:DEBUG[0m: cooldown_handlers.py:377 - percent fails for deployment = 85bd11d90c2aa581b011c1efdb503ddb66be3a6cc30570a574143ab27b9cf497, percent fails = 1.0, num successes = 0, num fails = 1
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm.proxy.hooks.litellm_skills.main.SkillsInjectionHook object at 0x11a9fa270> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm.proxy.hooks.model_max_budget_limiter._PROXY_VirtualKeyModelMaxBudgetLimiter object at 0x11d50aba0> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <enterprise.enterprise_hooks.banned_keywords._ENTERPRISE_BannedKeywords object at 0x11ec49be0> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm.proxy.hooks.max_budget_limiter._PROXY_MaxBudgetLimiter object at 0x11ec0a350> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm.proxy.hooks.parallel_request_limiter_v3._PROXY_MaxParallelRequestsHandler_v3 object at 0x11ec4acf0> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm.proxy.hooks.cache_control_check._PROXY_CacheControlCheck object at 0x11ec0afd0> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm.proxy.hooks.responses_id_security.ResponsesIDSecurity object at 0x11ec4b0e0> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm.proxy.hooks.max_iterations_limiter._PROXY_MaxIterationsHandler object at 0x11ec4b230> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm.proxy.hooks.max_budget_per_session_limiter._PROXY_MaxBudgetPerSessionHandler object at 0x11ec4b380> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm.proxy.hooks.sensitive_data_routing._PROXY_SensitiveDataRoutingHandler object at 0x11ec4b4d0> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm._service_logger.ServiceLogging object at 0x11d67f6f0> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <bound method Router.async_deployment_callback_on_failure of <litellm.router.Router object at 0x11ec49a90>> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm.proxy.hooks.litellm_skills.main.SkillsInjectionHook object at 0x11a9fa270> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm.proxy.hooks.model_max_budget_limiter._PROXY_VirtualKeyModelMaxBudgetLimiter object at 0x11d50aba0> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <enterprise.enterprise_hooks.banned_keywords._ENTERPRISE_BannedKeywords object at 0x11ec49be0> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm.proxy.hooks.max_budget_limiter._PROXY_MaxBudgetLimiter object at 0x11ec0a350> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm.proxy.hooks.parallel_request_limiter_v3._PROXY_MaxParallelRequestsHandler_v3 object at 0x11ec4acf0> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm.proxy.hooks.cache_control_check._PROXY_CacheControlCheck object at 0x11ec0afd0> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm.proxy.hooks.responses_id_security.ResponsesIDSecurity object at 0x11ec4b0e0> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm.proxy.hooks.max_iterations_limiter._PROXY_MaxIterationsHandler object at 0x11ec4b230> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm.proxy.hooks.max_budget_per_session_limiter._PROXY_MaxBudgetPerSessionHandler object at 0x11ec4b380> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm.proxy.hooks.sensitive_data_routing._PROXY_SensitiveDataRoutingHandler object at 0x11ec4b4d0> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:37 - Dynamically disabled callbacks from x-litellm-disable-callbacks: None
+[92m04:26:48 - LiteLLM:DEBUG[0m: callback_controls.py:38 - Checking if <litellm._service_logger.ServiceLogging object at 0x11d67f6f0> is disabled via headers. Disable callbacks from headers: None
+[92m04:26:48 - LiteLLM Router:INFO[0m: router.py:3080 - litellm.acompletion(model=openai/gpt-4o-mini)[31m Exception litellm.AuthenticationError: AuthenticationError: OpenAIException - Incorrect API key provided: sk-dummy. You can find your API key at https://platform.openai.com/account/api-keys.[0m
+[92m04:26:48 - LiteLLM Router:DEBUG[0m: router.py:10876 - initial list of deployments: [{'model_name': 'gpt-4o-mini', 'litellm_params': {'REDACTED', 'allow_client_keepalive_override': False, 'use_in_pass_through': False, 'use_litellm_proxy': False, 'use_xai_oauth': False, 'merge_reasoning_content_in_choices': False, 'model': 'openai/gpt-4o-mini'}, 'model_info': {'id': '85bd11d90c2aa581b011c1efdb503ddb66be3a6cc30570a574143ab27b9cf497', 'db_model': False}}]
+[92m04:26:48 - LiteLLM Router:DEBUG[0m: cooldown_handlers.py:500 - retrieve cooldown models: [('85bd11d90c2aa581b011c1efdb503ddb66be3a6cc30570a574143ab27b9cf497', {'exception_received': 'litellm.AuthenticationError: AuthenticationError: **********************************************************************************************************************************', 'status_code': '401', 'timestamp': 1788056808.906684, 'cooldown_time': 5})]
+[92m04:26:48 - LiteLLM Router:DEBUG[0m: router.py:6295 - TracebackTraceback (most recent call last):
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/llms/openai/openai.py", line 887, in acompletion
+    headers, response = await self.make_openai_chat_completion_request(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/litellm_core_utils/logging_utils.py", line 289, in async_wrapper
+    result: Final = await func(*args, **kwargs)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/llms/openai/openai.py", line 446, in make_openai_chat_completion_request
+    raise e
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/llms/openai/openai.py", line 422, in make_openai_chat_completion_request
+    raw_response = await openai_aclient.chat.completions.with_raw_response.create(**data, timeout=timeout)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/openai/_legacy_response.py", line 384, in wrapped
+    return cast(LegacyAPIResponse[R], await func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/openai/resources/chat/completions/completions.py", line 2714, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+    ...<49 lines>...
+    )
+    ^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/openai/_base_client.py", line 1913, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/openai/_base_client.py", line 1698, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-dummy. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/main.py", line 640, in acompletion
+    response = await _resolve_dispatched_chat_response(init_response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/main.py", line 705, in _resolve_dispatched_chat_response
+    return await pending
+           ^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/llms/openai/openai.py", line 947, in acompletion
+    raise OpenAIError(
+    ...<4 lines>...
+    )
+litellm.llms.openai.common_utils.OpenAIError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-dummy. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/router.py", line 6558, in async_function_with_fallbacks
+    response = await self.async_function_with_retries(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/router.py", line 6707, in async_function_with_retries
+    self.should_retry_this_error(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        error=e,
+        ^^^^^^^^
+    ...<4 lines>...
+        content_policy_fallbacks=content_policy_fallbacks,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/router.py", line 6905, in should_retry_this_error
+    raise error  # then raise error
+    ^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/router.py", line 6660, in async_function_with_retries
+    response = await self.make_call(original_function, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/router.py", line 6818, in make_call
+    response = await response
+               ^^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/router.py", line 3087, in _acompletion
+    raise e
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/router.py", line 3031, in _acompletion
+    response = await _response
+               ^^^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/utils.py", line 1951, in wrapper_async
+    raise e
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/utils.py", line 1760, in wrapper_async
+    result = await original_function(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/main.py", line 693, in acompletion
+    raise exception_type(
+          ~~~~~~~~~~~~~~^
+        model=model,
+        ^^^^^^^^^^^^
+    ...<3 lines>...
+        extra_kwargs=kwargs,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/litellm_core_utils/exception_mapping_utils.py", line 2510, in exception_type
+    raise e  # it's already mapped
+    ^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/litellm_core_utils/exception_mapping_utils.py", line 2279, in exception_type
+    _map_openai_exception(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        model=model,
+        ^^^^^^^^^^^^
+    ...<5 lines>...
+        extra_information=extra_information,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/litellm_core_utils/exception_mapping_utils.py", line 409, in _map_openai_exception
+    raise AuthenticationError(
+    ...<5 lines>...
+    )
+litellm.exceptions.AuthenticationError: litellm.AuthenticationError: AuthenticationError: OpenAIException - Incorrect API key provided: sk-dummy. You can find your API key at https://platform.openai.com/account/api-keys.
+
+[92m04:26:48 - LiteLLM Router:INFO[0m: router.py:6386 - Trying to fallback b/w models
+[92m04:26:48 - LiteLLM:DEBUG[0m: cooldown_callbacks.py:33 - In router_cooldown_event_callback - updating prometheus
+[92m04:26:48 - LiteLLM Proxy:ERROR[0m: common_request_processing.py:1041 - litellm.proxy.proxy_server._handle_llm_api_exception(): Exception occured - litellm.AuthenticationError: AuthenticationError: OpenAIException - Incorrect API key provided: sk-dummy. You can find your API key at https://platform.openai.com/account/api-keys.. Received Model Group=gpt-4o-mini
+Available Model Group Fallbacks=None
+Traceback (most recent call last):
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/llms/openai/openai.py", line 887, in acompletion
+    headers, response = await self.make_openai_chat_completion_request(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/litellm_core_utils/logging_utils.py", line 289, in async_wrapper
+    result: Final = await func(*args, **kwargs)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/llms/openai/openai.py", line 446, in make_openai_chat_completion_request
+    raise e
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/llms/openai/openai.py", line 422, in make_openai_chat_completion_request
+    raw_response = await openai_aclient.chat.completions.with_raw_response.create(**data, timeout=timeout)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/openai/_legacy_response.py", line 384, in wrapped
+    return cast(LegacyAPIResponse[R], await func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/openai/resources/chat/completions/completions.py", line 2714, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+    ...<49 lines>...
+    )
+    ^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/openai/_base_client.py", line 1913, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/.venv/lib/python3.13/site-packages/openai/_base_client.py", line 1698, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-dummy. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/main.py", line 640, in acompletion
+    response = await _resolve_dispatched_chat_response(init_response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/main.py", line 705, in _resolve_dispatched_chat_response
+    return await pending
+           ^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/llms/openai/openai.py", line 947, in acompletion
+    raise OpenAIError(
+    ...<4 lines>...
+    )
+litellm.llms.openai.common_utils.OpenAIError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-dummy. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/proxy_server.py", line 9875, in chat_completion
+    result: Final = await base_llm_response_processor.base_process_llm_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<16 lines>...
+    )
+    ^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/proxy/common_request_processing.py", line 1911, in base_process_llm_request
+    responses = await llm_responses
+                ^^^^^^^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/router.py", line 2181, in acompletion
+    raise e
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/router.py", line 2157, in acompletion
+    response = await self.async_function_with_fallbacks(**kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/router.py", line 6567, in async_function_with_fallbacks
+    return await self.async_function_with_fallbacks_common_utils(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<9 lines>...
+    )
+    ^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/router.py", line 6529, in async_function_with_fallbacks_common_utils
+    raise original_exception
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/router.py", line 6558, in async_function_with_fallbacks
+    response = await self.async_function_with_retries(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/router.py", line 6707, in async_function_with_retries
+    self.should_retry_this_error(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        error=e,
+        ^^^^^^^^
+    ...<4 lines>...
+        content_policy_fallbacks=content_policy_fallbacks,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/router.py", line 6905, in should_retry_this_error
+    raise error  # then raise error
+    ^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/router.py", line 6660, in async_function_with_retries
+    response = await self.make_call(original_function, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/router.py", line 6818, in make_call
+    response = await response
+               ^^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/router.py", line 3087, in _acompletion
+    raise e
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/router.py", line 3031, in _acompletion
+    response = await _response
+               ^^^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/utils.py", line 1951, in wrapper_async
+    raise e
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/utils.py", line 1760, in wrapper_async
+    result = await original_function(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/main.py", line 693, in acompletion
+    raise exception_type(
+          ~~~~~~~~~~~~~~^
+        model=model,
+        ^^^^^^^^^^^^
+    ...<3 lines>...
+        extra_kwargs=kwargs,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/litellm_core_utils/exception_mapping_utils.py", line 2510, in exception_type
+    raise e  # it's already mapped
+    ^^^^^^^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/litellm_core_utils/exception_mapping_utils.py", line 2279, in exception_type
+    _map_openai_exception(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        model=model,
+        ^^^^^^^^^^^^
+    ...<5 lines>...
+        extra_information=extra_information,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/pcmulder/.ao/data/worktrees/litellm/litellm-3/litellm/litellm_core_utils/exception_mapping_utils.py", line 409, in _map_openai_exception
+    raise AuthenticationError(
+    ...<5 lines>...
+    )
+litellm.exceptions.AuthenticationError: litellm.AuthenticationError: AuthenticationError: OpenAIException - Incorrect API key provided: sk-dummy. You can find your API key at https://platform.openai.com/account/api-keys.. Received Model Group=gpt-4o-mini
+Available Model Group Fallbacks=None
+[92m04:26:48 - LiteLLM Proxy:DEBUG[0m: common_request_processing.py:2777 - [1;31mAn error occurred: litellm.AuthenticationError: AuthenticationError: OpenAIException - Incorrect API key provided: sk-dummy. You can find your API key at https://platform.openai.com/account/api-keys.. Received Model Group=gpt-4o-mini
+Available Model Group Fallbacks=None 
+Model: openai/gpt-4o-mini
+API Base: `https://api.openai.com`
+Messages: `[{'role': 'user', 'content': 'Say hello in one word.'}]`
+model_group: `gpt-4o-mini`
+
+deployment: `openai/gpt-4o-mini`
+
+
+ Debug this by setting `--debug`, e.g. `litellm --model gpt-3.5-turbo --debug`
+INFO:     127.0.0.1:54107 - "POST /chat/completions HTTP/1.1" 401 Unauthorized
+[92m04:27:36 - LiteLLM Proxy:DEBUG[0m: hanging_request_check.py:153 - Checking for hanging requests....
+[92m04:30:06 - LiteLLM Proxy:DEBUG[0m: hanging_request_check.py:153 - Checking for hanging requests....
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+[92m04:31:52 - LiteLLM Proxy:INFO[0m: graceful_shutdown_manager.py:82 - graceful_shutdown_started in_flight_requests=0
+[92m04:31:52 - LiteLLM Proxy:INFO[0m: graceful_shutdown_manager.py:141 - graceful_shutdown_complete drained_requests=0 elapsed_s=0.00
+[92m04:31:52 - LiteLLM Proxy:INFO[0m: proxy_server.py:1255 - SESSION REUSE: Closed shared aiohttp session
+[92m04:31:52 - LiteLLM Proxy:INFO[0m: proxy_server.py:869 - Shutting down LiteLLM Proxy Server
+INFO:     Application shutdown complete.
+INFO:     Finished server process [34244]
