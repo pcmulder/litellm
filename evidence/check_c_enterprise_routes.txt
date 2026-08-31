@@ -1,0 +1,33 @@
+total openapi paths: 559
+enterprise-router (litellm_enterprise.proxy.enterprise_routes) paths present:
+  PRESENT: /audit
+  PRESENT: /audit/{id}
+  PRESENT: /email/event_settings
+  PRESENT: /email/event_settings/reset
+  PRESENT: /project/delete
+  PRESENT: /project/info
+  PRESENT: /project/list
+  PRESENT: /project/new
+  PRESENT: /project/update
+  PRESENT: /robots.txt
+  PRESENT: /user/available_users
+
+keyword-matched (vector_store/managed/enterprise): 18
+   /v1/vector_store/list
+   /v1/vector_stores
+   /v1/vector_stores/{vector_store_id}
+   /v1/vector_stores/{vector_store_id}/files
+   /v1/vector_stores/{vector_store_id}/files/{file_id}
+   /v1/vector_stores/{vector_store_id}/files/{file_id}/content
+   /v1/vector_stores/{vector_store_id}/search
+   /vector_store/delete
+   /vector_store/info
+   /vector_store/list
+   /vector_store/new
+   /vector_store/update
+   /vector_stores
+   /vector_stores/{vector_store_id}
+   /vector_stores/{vector_store_id}/files
+   /vector_stores/{vector_store_id}/files/{file_id}
+   /vector_stores/{vector_store_id}/files/{file_id}/content
+   /vector_stores/{vector_store_id}/search
