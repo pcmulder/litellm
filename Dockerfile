@@ -1,10 +1,10 @@
 # syntax=docker/dockerfile:1.7
 
 # Base image for building
-ARG LITELLM_BUILD_IMAGE=cgr.dev/chainguard/wolfi-base@sha256:42df77a9974d6ec8b17a5ee8bc23b532600a44d705acef2409e0933c1251b45f
+ARG LITELLM_BUILD_IMAGE=cgr.dev/chainguard/wolfi-base@sha256:57108e597a8cf3bd376b810f1c3539c21942daefa242cb9dddaae30f8aac735d
 
 # Runtime image
-ARG LITELLM_RUNTIME_IMAGE=cgr.dev/chainguard/wolfi-base@sha256:42df77a9974d6ec8b17a5ee8bc23b532600a44d705acef2409e0933c1251b45f
+ARG LITELLM_RUNTIME_IMAGE=cgr.dev/chainguard/wolfi-base@sha256:57108e597a8cf3bd376b810f1c3539c21942daefa242cb9dddaae30f8aac735d
 ARG UV_IMAGE=ghcr.io/astral-sh/uv:0.11.7@sha256:240fb85ab0f263ef12f492d8476aa3a2e4e1e333f7d67fbdd923d00a506a516a
 # Pinned by digest like the other base images; bump explicitly on Node upgrades.
 ARG UI_BUILD_IMAGE=node:24.19-alpine3.24@sha256:d32cdf619f63fe0471182d08996dd516c6275bb5fd31ae06e55a570bd9e1ad43
@@ -50,6 +50,7 @@ RUN apk add --no-cache \
     libsndfile
 
 ENV UV_PROJECT_ENVIRONMENT=/app/.venv \
+    UV_PYTHON=3.13 \
     UV_LINK_MODE=copy \
     PATH="/app/.venv/bin:${PATH}"
 
@@ -65,7 +66,7 @@ RUN uv sync --frozen --no-install-project --no-install-workspace --no-default-gr
     --extra extra_proxy \
     --extra semantic-router \
     --extra saml \
-    --python python3
+    --python 3.13
 
 # Copy full source tree
 COPY . .
@@ -86,7 +87,7 @@ RUN uv sync --frozen --no-default-groups --no-editable \
     --extra extra_proxy \
     --extra semantic-router \
     --extra saml \
-    --python python3
+    --python 3.13
 
 RUN HOME=/opt/prisma XDG_CACHE_HOME=/opt/prisma/.cache PRISMA_BINARY_CACHE_DIR=/opt/prisma/binaries \
     npm_config_cache=/root/.npm \
