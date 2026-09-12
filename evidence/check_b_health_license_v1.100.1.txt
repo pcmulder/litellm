@@ -1,0 +1,1 @@
+{"has_license":true,"license_type":"enterprise","expiration_date":"2099-12-31","allowed_features":[],"limits":{"max_users":1000000,"max_teams":1000000}}
