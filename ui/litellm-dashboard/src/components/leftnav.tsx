@@ -76,7 +76,6 @@ import {
 } from "../utils/roles";
 import BetaBadge from "./BetaBadge";
 import SidebarAccountMenu from "./SidebarAccountMenu/SidebarAccountMenu";
-import SidebarUsageCard from "./SidebarUsageCard";
 import { routeSegmentForPathname, uiHref } from "@/utils/uiHref";
 
 const ICON = { strokeWidth: 1.75 } as const;
@@ -650,13 +649,6 @@ const Sidebar_: React.FC<SidebarProps> = ({
       </ScrollArea>
 
       <SidebarFooter>
-        {isAdminRole(userRole) && (
-          <SidebarUsageCard
-            accessToken={accessToken}
-            collapsed={collapsed}
-            onExpandRail={() => onToggleCollapsed?.()}
-          />
-        )}
         <SidebarAccountMenu onLogout={logout} collapsed={collapsed} />
       </SidebarFooter>
     </Sidebar>
